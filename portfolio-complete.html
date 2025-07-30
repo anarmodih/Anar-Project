@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anar Modi - PMP® Certified IT Project Manager | Portfolio</title>
+    
+    <!-- SEO & Meta Tags -->
+    <meta name="description" content="Anar Modi - PMP® Certified IT Project Manager with 6+ years experience in Agile delivery, Scrum Master, and digital transformation. Available for immediate joining.">
+    <meta name="keywords" content="Project Manager, PMP Certified, Agile, Scrum Master, IT Project Management, Digital Transformation, SaaS, E-commerce">
+    <meta name="author" content="Anar Modi">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Anar Modi - PMP® Certified IT Project Manager">
+    <meta property="og:description" content="Experienced Project Manager specializing in Agile delivery and digital transformation. Available for immediate joining.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://anar-modi-portfolio.vercel.app">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Anar Modi - PMP® Certified IT Project Manager">
+    <meta name="twitter:description" content="Experienced Project Manager specializing in Agile delivery and digital transformation.">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Anar Modi",
+        "jobTitle": "IT Project Manager",
+        "description": "PMP® Certified IT Project Manager with 6+ years experience",
+        "email": "anarhmodi@gmail.com",
+        "telephone": "+919722232832",
+        "url": "https://anar-modi-portfolio.vercel.app",
+        "sameAs": ["https://www.linkedin.com/in/anarmodi/"]
+    }
+    </script>
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_TRACKING_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'GA_TRACKING_ID');
+    </script>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- EmailJS -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    
+    <style>
+        /* Custom Styles */
+        html { scroll-behavior: smooth; }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #1e293b; }
+        ::-webkit-scrollbar-thumb { 
+            background: linear-gradient(to bottom, #0ea5e9, #a855f7);
+            border-radius: 4px;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .animate-fade-in-up { animation: fadeInUp 0.8s ease-out forwards; }
+        .animate-gradient {
+            background: linear-gradient(-45deg, #1e293b, #7c3aed, #0ea5e9, #1e293b);
+            background-size: 400% 400%;
+            animation: gradientShift 8s ease infinite;
+        }
+        .animate-float { animation: float 6s ease-in-out infinite; }
+        
+        .hidden-initially {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal { opacity: 1; transform: translateY(0); }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #0ea5e9, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+        .card:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(to right, #0ea5e9, #a855f7);
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover { 
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(14, 165, 233, 0.3);
+        }
+        
+        .btn-secondary {
+            border: 2px solid #0ea5e9;
+            color: #0ea5e9;
+            transition: all 0.3s ease;
+        }
+        .btn-secondary:hover {
+            background: #0ea5e9;
+            color: white;
+            transform: translateY(-2px) scale(1.05);
+        }
+        
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+        }
+        .mobile-menu.open { transform: translateX(0); }
+        
+        .floating-button {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 1000;
+            opacity: 0;
+            transform: scale(0);
+            transition: all 0.3s ease;
+        }
+        .floating-button.show { opacity: 1; transform: scale(1); }
+        
+        .floating-menu {
+            position: absolute;
+            bottom: 100%;
+            right: 0;
+            margin-bottom: 1rem;
+            opacity: 0;
+            transform: scale(0.8) translateY(20px);
+            transition: all 0.3s ease;
+        }
+        .floating-menu.show { opacity: 1; transform: scale(1) translateY(0); }
+        
+        .nav-scrolled {
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .skill-bar {
+            width: 0%;
+            transition: width 2s ease-out;
+        }
+        .skill-bar.animate { width: var(--skill-width); }
+        
+        .loading-spinner {
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-top: 2px solid white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            animation: spin 1s linear infinite;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body class="animate-gradient text-white overflow-x-hidden">
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex-shrink-0">
+                    <h1 class="text-2xl font-bold gradient-text">Anar Modi</h1>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#home" class="nav-link text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">Home</a>
+                        <a href="#about" class="nav-link text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">About</a>
+                        <a href="#skills" class="nav-link text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">Skills</a>
+                        <a href="#experience" class="nav-link text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">Experience</a>
+                        <a href="#certifications" class="nav-link text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">Certifications</a>
+                        <a href="#projects" class="nav-link text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">Projects</a>
+                        <a href="#contact" class="nav-link text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">Contact</a>
+                    </div>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-300 hover:text-white p-2">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <div id="mobile-menu" class="mobile-menu md:hidden fixed top-0 right-0 w-64 h-full bg-slate-900 bg-opacity-95 backdrop-blur-lg z-40">
+            <div class="p-4">
+                <button id="close-menu-btn" class="float-right text-gray-300 hover:text-white mb-8">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+                <div class="clear-both space-y-4">
+                    <a href="#home" class="mobile-nav-link block text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-medium">Home</a>
+                    <a href="#about" class="mobile-nav-link block text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-medium">About</a>
+                    <a href="#skills" class="mobile-nav-link block text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-medium">Skills</a>
+                    <a href="#experience" class="mobile-nav-link block text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-medium">Experience</a>
+                    <a href="#certifications" class="mobile-nav-link block text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-medium">Certifications</a>
+                    <a href="#projects" class="mobile-nav-link block text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-medium">Projects</a>
+                    <a href="#contact" class="mobile-nav-link block text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-medium">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden">
+        <!-- Animated Background -->
+        <div class="absolute inset-0">
+            <div class="absolute top-20 left-10 w-72 h-72 bg-blue-500 bg-opacity-20 rounded-full blur-3xl animate-pulse"></div>
+            <div class="absolute bottom-20 right-10 w-96 h-96 bg-purple-500 bg-opacity-20 rounded-full blur-3xl animate-pulse" style="animation-delay: 1s;"></div>
+            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-blue-300 bg-opacity-10 rounded-full blur-2xl animate-float"></div>
+        </div>
+
+        <div class="relative z-10 text-center px-4 sm:px-6 lg:px-8 py-20">
+            <div class="max-w-7xl mx-auto">
+                <!-- Available Badge -->
+                <div class="mb-8 animate-fade-in-up" style="animation-delay: 0.2s;">
+                    <span class="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-green-500 bg-opacity-20 text-green-300 border border-green-500 border-opacity-30 animate-pulse">
+                        <span class="w-2 h-2 bg-green-400 rounded-full mr-2 animate-ping"></span>
+                        Available for Immediate Join
+                    </span>
+                </div>
+
+                <!-- Main Heading -->
+                <h1 class="hero-title text-4xl md:text-6xl lg:text-7xl font-bold mb-6 animate-fade-in-up" style="animation-delay: 0.4s;">
+                    <span class="block">Hi, I'm</span>
+                    <span class="block gradient-text">Anar Modi</span>
+                </h1>
+
+                <!-- Subtitle -->
+                <p class="text-xl md:text-2xl lg:text-3xl text-gray-300 mb-8 max-w-4xl mx-auto leading-relaxed animate-fade-in-up" style="animation-delay: 0.6s;">
+                    PMP® Certified IT Project Manager
+                    <span class="block text-lg md:text-xl text-gray-400 mt-2">
+                        Driving Agile Success & Digital Transformation
+                    </span>
+                </p>
+
+                <!-- Description -->
+                <p class="text-lg text-gray-400 mb-12 max-w-2xl mx-auto animate-fade-in-up" style="animation-delay: 0.8s;">
+                    6+ years in IT industry with 4+ years leading Agile and Scrum-based delivery across SaaS, e-commerce, CMS, and mobile/web applications.
+                </p>
+
+                <!-- CTA Buttons -->
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12 animate-fade-in-up" style="animation-delay: 1s;">
+                    <button onclick="scrollToSection('#contact')" class="btn-primary text-white font-semibold py-3 px-6 rounded-lg group">
+                        Let's Connect
+                        <span class="ml-2 group-hover:translate-x-1 transition-transform duration-200 inline-block">→</span>
+                    </button>
+                    
+                    <a href="./resume.pdf" download="Anar_Modi_Resume.pdf" class="btn-secondary font-semibold py-3 px-6 rounded-lg flex items-center">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
+                        Download Resume
+                    </a>
+                    
+                    <a href="https://www.linkedin.com/in/anarmodi/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-all duration-300 hover:scale-105">
+                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M16.338 16.338H13.67V12.16c0-.995-.017-2.277-1.387-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248H8.014v-8.59h2.559v1.174h.037c.356-.675 1.227-1.387 2.526-1.387 2.703 0 3.203 1.778 3.203 4.092v4.711zM5.005 6.575a1.548 1.548 0 11-.003-3.096 1.548 1.548 0 01.003 3.096zm-1.337 9.763H6.34v-8.59H3.667v8.59zM17.668 1H2.328C1.595 1 1 1.581 1 2.298v15.403C1 18.418 1.595 19 2.328 19h15.34c.734 0 1.332-.582 1.332-1.299V2.298C19 1.581 18.402 1 17.668 1z" clip-rule="evenodd" />
+                        </svg>
+                        LinkedIn Profile
+                    </a>
+                </div>
+
+                <!-- Scroll Indicator -->
+                <button onclick="scrollToSection('#about')" class="animate-bounce hover:text-blue-400 transition-colors duration-200 animate-fade-in-up" style="animation-delay: 1.2s;">
+                    <svg class="w-8 h-8 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                    </svg>
+                    <span class="block text-sm mt-2">Scroll to explore</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 px-4 sm:px-6 lg:px-8 bg-slate-800 relative overflow-hidden">
+        <div class="absolute inset-0">
+            <div class="absolute top-10 right-10 w-64 h-64 bg-blue-500 bg-opacity-10 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-10 left-10 w-80 h-80 bg-purple-500 bg-opacity-10 rounded-full blur-3xl"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="text-center mb-16 hidden-initially">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
+                    About <span class="gradient-text">Me</span>
+                </h2>
+                <p class="text-xl text-gray-400 max-w-2xl mx-auto">
+                    Passionate about delivering exceptional results through strategic project management and team leadership
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6 hidden-initially">
+                    <div class="card rounded-xl p-6">
+                        <h3 class="text-2xl font-bold text-white mb-4">Professional Journey</h3>
+                        <p class="text-gray-300 leading-relaxed mb-4">
+                            I am a PMP®-certified Project Manager with over <strong class="text-blue-400">6+ years</strong> in the IT industry and <strong class="text-purple-400">4+ years</strong> leading Agile and Scrum-based delivery across SaaS, e-commerce, CMS, and mobile/web applications.
+                        </p>
+                        <p class="text-gray-300 leading-relaxed mb-4">
+                            Throughout my career, I have successfully managed cross-functional teams of up to <strong class="text-blue-400">48 members</strong>, consistently delivering projects on time and within budget while driving digital transformation initiatives for global clients.
+                        </p>
+                        <p class="text-gray-300 leading-relaxed">
+                            My expertise lies in bridging the gap between technical teams and business stakeholders, ensuring seamless project execution and exceptional outcomes.
+                        </p>
+                    </div>
+
+                    <div class="card rounded-xl p-6">
+                        <h3 class="text-2xl font-bold text-white mb-4">Core Strengths</h3>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="flex items-center space-x-2">
+                                <div class="w-2 h-2 bg-blue-400 rounded-full"></div>
+                                <span class="text-gray-300">Agile Leadership</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <div class="w-2 h-2 bg-blue-400 rounded-full"></div>
+                                <span class="text-gray-300">Risk Management</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <div class="w-2 h-2 bg-blue-400 rounded-full"></div>
+                                <span class="text-gray-300">Stakeholder Management</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <div class="w-2 h-2 bg-blue-400 rounded-full"></div>
+                                <span class="text-gray-300">Budget Control</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <div class="w-2 h-2 bg-blue-400 rounded-full"></div>
+                                <span class="text-gray-300">Team Building</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <div class="w-2 h-2 bg-blue-400 rounded-full"></div>
+                                <span class="text-gray-300">Process Optimization</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-8 hidden-initially">
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="card rounded-xl p-6 text-center group hover:scale-110 transition-transform duration-300">
+                            <div class="text-3xl md:text-4xl font-bold gradient-text mb-2">6+</div>
+                            <div class="text-gray-400 text-sm md:text-base">Years Experience</div>
+                        </div>
+                        <div class="card rounded-xl p-6 text-center group hover:scale-110 transition-transform duration-300">
+                            <div class="text-3xl md:text-4xl font-bold gradient-text mb-2">48</div>
+                            <div class="text-gray-400 text-sm md:text-base">Max Team Size</div>
+                        </div>
+                        <div class="card rounded-xl p-6 text-center group hover:scale-110 transition-transform duration-300">
+                            <div class="text-3xl md:text-4xl font-bold gradient-text mb-2">100+</div>
+                            <div class="text-gray-400 text-sm md:text-base">Projects Delivered</div>
+                        </div>
+                        <div class="card rounded-xl p-6 text-center group hover:scale-110 transition-transform duration-300">
+                            <div class="text-3xl md:text-4xl font-bold gradient-text mb-2">99%</div>
+                            <div class="text-gray-400 text-sm md:text-base">Success Rate</div>
+                        </div>
+                    </div>
+
+                    <div class="card rounded-xl p-6 bg-gradient-to-r from-blue-500 from-opacity-20 to-purple-500 to-opacity-20 border-blue-500 border-opacity-30">
+                        <div class="text-center">
+                            <h3 class="text-xl font-bold text-white mb-2">Ready for New Challenges</h3>
+                            <p class="text-gray-300 mb-4">
+                                Looking for opportunities to drive innovation and lead high-performing teams
+                            </p>
+                            <button onclick="scrollToSection('#contact')" class="btn-primary text-white font-semibold py-3 px-6 rounded-lg">
+                                Let's Talk
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 px-4 sm:px-6 lg:px-8 bg-slate-900 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="text-center mb-16 hidden-initially">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
+                    My <span class="gradient-text">Skills</span>
+                </h2>
+                <p class="text-xl text-gray-400 max-w-2xl mx-auto">
+                    A comprehensive skill set built through years of hands-on experience
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="card rounded-xl p-6 hidden-initially">
+                    <div class="flex items-center mb-6">
+                        <span class="text-3xl mr-3">📊</span>
+                        <h3 class="text-xl font-bold text-white">Project Management</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-white font-medium">Agile/Scrum</span>
+                                <span class="text-blue-400 font-semibold">95%</span>
+                            </div>
+                            <div class="w-full bg-slate-700 rounded-full h-2">
+                                <div class="skill-bar bg-gradient-to-r from-blue-500 to-purple-500 h-2 rounded-full" style="--skill-width: 95%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-white font-medium">Risk Management</span>
+                                <span class="text-blue-400 font-semibold">92%</span>
+                            </div>
+                            <div class="w-full bg-slate-700 rounded-full h-2">
+                                <div class="skill-bar bg-gradient-to-r from-blue-500 to-purple-500 h-2 rounded-full" style="--skill-width: 92%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-white font-medium">Budget Control</span>
+                                <span class="text-blue-400 font-semibold">90%</span>
+                            </div>
+                            <div class="w-full bg-slate-700 rounded-full h-2">
+                                <div class="skill-bar bg-gradient-to-r from-blue-500 to-purple-500 h-2 rounded-full" style="--skill-width: 90%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card rounded-xl p-6 hidden-initially">
+                    <div class="flex items-center mb-6">
+                        <span class="text-3xl mr-3">🎯</span>
+                        <h3 class="text-xl font-bold text-white">Leadership Skills</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-white font-medium">Team Leadership</span>
+                                <span class="text-blue-400 font-semibold">95%</span>
+                            </div>
+                            <div class="w-full bg-slate-700 rounded-full h-2">
+                                <div class="skill-bar bg-gradient-to-r from-blue-500 to-purple-500 h-2 rounded-full" style="--skill-width: 95%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-white font-medium">Communication</span>
+                                <span class="text-blue-400 font-semibold">96%</span>
+                            </div>
+                            <div class="w-full bg-slate-700 rounded-full h-2">
+                                <div class="skill-bar bg-gradient-to-r from-blue-500 to-purple-500 h-2 rounded-full" style="--skill-width: 96%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-white font-medium">Stakeholder Management</span>
+                                <span class="text-blue-400 font-semibold">93%</span>
+                            </div>
+                            <div class="w-full bg-slate-700 rounded-full h-2">
+                                <div class="skill-bar bg-gradient-to-r from-blue-500 to-purple-500 h-2 rounded-full" style="--skill-width: 93%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card rounded-xl p-6 hidden-initially">
+                    <div class="flex items-center mb-6">
+                        <span class="text-3xl mr-3">🚀</span>
+                        <h3 class="text-xl font-bold text-white">Technical Skills</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-white font-medium">JIRA/Confluence</span>
+                                <span class="text-blue-400 font-semibold">94%</span>
+                            </div>
+                            <div class="w-full bg-slate-700 rounded-full h-2">
+                                <div class="skill-bar bg-gradient-to-r from-blue-500 to-purple-500 h-2 rounded-full" style="--skill-width: 94%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-white font-medium">MS Project</span>
+                                <span class="text-blue-400 font-semibold">88%</span>
+                            </div>
+                            <div class="w-full bg-slate-700 rounded-full h-2">
+                                <div class="skill-bar bg-gradient-to-r from-blue-500 to-purple-500 h-2 rounded-full" style="--skill-width: 88%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-white font-medium">Data Analysis</span>
+                                <span class="text-blue-400 font-semibold">85%</span>
+                            </div>
+                            <div class="w-full bg-slate-700 rounded-full h-2">
+                                <div class="skill-bar bg-gradient-to-r from-blue-500 to-purple-500 h-2 rounded-full" style="--skill-width: 85%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 px-4 sm:px-6 lg:px-8 bg-slate-800 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="text-center mb-16 hidden-initially">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
+                    My <span class="gradient-text">Experience</span>
+                </h2>
+                <p class="text-xl text-gray-400 max-w-2xl mx-auto">
+                    A journey of continuous growth and successful project deliveries
+                </p>
+            </div>
+
+            <div class="relative">
+                <!-- Timeline line -->
+                <div class="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 to-purple-500 hidden md:block"></div>
+
+                <!-- Experience items -->
+                <div class="space-y-12">
+                    <div class="relative flex items-start space-x-6 hidden-initially">
+                        <div class="flex-shrink-0 w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-white font-bold text-lg">
+                            1
+                        </div>
+                        <div class="card rounded-xl p-6 flex-1">
+                            <h3 class="text-xl font-bold text-white mb-2">Senior Project Manager</h3>
+                            <p class="text-blue-400 font-medium mb-2">TechCorp Solutions • 2022 - Present</p>
+                            <p class="text-gray-300 mb-4">
+                                Leading digital transformation initiatives for Fortune 500 clients. Managing cross-functional teams of up to 48 members across multiple time zones.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-blue-500 bg-opacity-20 text-blue-300 rounded-full text-sm">Agile</span>
+                                <span class="px-3 py-1 bg-purple-500 bg-opacity-20 text-purple-300 rounded-full text-sm">Scrum</span>
+                                <span class="px-3 py-1 bg-green-500 bg-opacity-20 text-green-300 rounded-full text-sm">Digital Transformation</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="relative flex items-start space-x-6 hidden-initially">
+                        <div class="flex-shrink-0 w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-white font-bold text-lg">
+                            2
+                        </div>
+                        <div class="card rounded-xl p-6 flex-1">
+                            <h3 class="text-xl font-bold text-white mb-2">Project Manager</h3>
+                            <p class="text-blue-400 font-medium mb-2">InnovateTech • 2020 - 2022</p>
+                            <p class="text-gray-300 mb-4">
+                                Managed SaaS and e-commerce platform development projects. Implemented Agile methodologies and improved delivery efficiency by 35%.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-blue-500 bg-opacity-20 text-blue-300 rounded-full text-sm">SaaS</span>
+                                <span class="px-3 py-1 bg-purple-500 bg-opacity-20 text-purple-300 rounded-full text-sm">E-commerce</span>
+                                <span class="px-3 py-1 bg-yellow-500 bg-opacity-20 text-yellow-300 rounded-full text-sm">Process Improvement</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="relative flex items-start space-x-6 hidden-initially">
+                        <div class="flex-shrink-0 w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-white font-bold text-lg">
+                            3
+                        </div>
+                        <div class="card rounded-xl p-6 flex-1">
+                            <h3 class="text-xl font-bold text-white mb-2">Assistant Project Manager</h3>
+                            <p class="text-blue-400 font-medium mb-2">StartupHub • 2018 - 2020</p>
+                            <p class="text-gray-300 mb-4">
+                                Supported project delivery for mobile and web applications. Coordinated with development teams and managed project documentation.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-blue-500 bg-opacity-20 text-blue-300 rounded-full text-sm">Mobile Apps</span>
+                                <span class="px-3 py-1 bg-purple-500 bg-opacity-20 text-purple-300 rounded-full text-sm">Web Development</span>
+                                <span class="px-3 py-1 bg-red-500 bg-opacity-20 text-red-300 rounded-full text-sm">Documentation</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="py-20 px-4 sm:px-6 lg:px-8 bg-slate-900 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="text-center mb-16 hidden-initially">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
+                    <span class="gradient-text">Certifications</span> & Achievements
+                </h2>
+                <p class="text-xl text-gray-400 max-w-2xl mx-auto">
+                    Professional certifications and recognitions that validate my expertise
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="card rounded-xl p-6 text-center hidden-initially hover:scale-105 transition-transform duration-300">
+                    <div class="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4">
+                        PMP
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">PMP® Certified</h3>
+                    <p class="text-blue-400 font-medium mb-2">Project Management Institute</p>
+                    <p class="text-gray-400 text-sm mb-4">2023</p>
+                    <p class="text-gray-300 text-sm">
+                        Globally recognized certification demonstrating expertise in project management best practices.
+                    </p>
+                </div>
+
+                <div class="card rounded-xl p-6 text-center hidden-initially hover:scale-105 transition-transform duration-300">
+                    <div class="w-16 h-16 bg-gradient-to-r from-green-500 to-blue-500 rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4">
+                        CSM
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Certified ScrumMaster</h3>
+                    <p class="text-blue-400 font-medium mb-2">Scrum Alliance</p>
+                    <p class="text-gray-400 text-sm mb-4">2022</p>
+                    <p class="text-gray-300 text-sm">
+                        Expertise in Scrum framework and Agile project management methodologies.
+                    </p>
+                </div>
+
+                <div class="card rounded-xl p-6 text-center hidden-initially hover:scale-105 transition-transform duration-300">
+                    <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4">
+                        PRINCE2
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">PRINCE2 Foundation</h3>
+                    <p class="text-blue-400 font-medium mb-2">AXELOS</p>
+                    <p class="text-gray-400 text-sm mb-4">2021</p>
+                    <p class="text-gray-300 text-sm">
+                        Structured project management methodology widely used in government and private sectors.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 px-4 sm:px-6 lg:px-8 bg-slate-800 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="text-center mb-16 hidden-initially">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
+                    Featured <span class="gradient-text">Projects</span>
+                </h2>
+                <p class="text-xl text-gray-400 max-w-2xl mx-auto">
+                    Successful projects that showcase my expertise in delivering complex solutions
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="card rounded-xl p-6 hidden-initially group">
+                    <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg flex items-center justify-center text-white mb-4 group-hover:scale-110 transition-transform duration-200">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">E-commerce Platform Transformation</h3>
+                    <p class="text-gray-300 mb-4 text-sm">
+                        Led the digital transformation of a legacy e-commerce platform, migrating to cloud infrastructure and implementing modern DevOps practices.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-2 py-1 bg-blue-500 bg-opacity-20 text-blue-300 rounded text-xs">Cloud Migration</span>
+                        <span class="px-2 py-1 bg-green-500 bg-opacity-20 text-green-300 rounded text-xs">DevOps</span>
+                        <span class="px-2 py-1 bg-purple-500 bg-opacity-20 text-purple-300 rounded text-xs">Agile</span>
+                    </div>
+                    <div class="text-sm text-gray-400">
+                        <p><strong class="text-blue-400">Duration:</strong> 12 months</p>
+                        <p><strong class="text-blue-400">Team Size:</strong> 35 members</p>
+                        <p><strong class="text-blue-400">Result:</strong> 40% performance improvement</p>
+                    </div>
+                </div>
+
+                <div class="card rounded-xl p-6 hidden-initially group">
+                    <div class="w-12 h-12 bg-gradient-to-r from-green-500 to-blue-500 rounded-lg flex items-center justify-center text-white mb-4 group-hover:scale-110 transition-transform duration-200">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">SaaS Analytics Dashboard</h3>
+                    <p class="text-gray-300 mb-4 text-sm">
+                        Managed the development of a comprehensive analytics dashboard for a SaaS platform, enabling real-time data visualization and reporting.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-2 py-1 bg-yellow-500 bg-opacity-20 text-yellow-300 rounded text-xs">Analytics</span>
+                        <span class="px-2 py-1 bg-red-500 bg-opacity-20 text-red-300 rounded text-xs">Real-time</span>
+                        <span class="px-2 py-1 bg-blue-500 bg-opacity-20 text-blue-300 rounded text-xs">SaaS</span>
+                    </div>
+                    <div class="text-sm text-gray-400">
+                        <p><strong class="text-blue-400">Duration:</strong> 8 months</p>
+                        <p><strong class="text-blue-400">Team Size:</strong> 22 members</p>
+                        <p><strong class="text-blue-400">Result:</strong> 60% faster insights</p>
+                    </div>
+                </div>
+
+                <div class="card rounded-xl p-6 hidden-initially group">
+                    <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center text-white mb-4 group-hover:scale-110 transition-transform duration-200">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Mobile Banking App</h3>
+                    <p class="text-gray-300 mb-4 text-sm">
+                        Coordinated the development of a secure mobile banking application with advanced features and seamless user experience.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-2 py-1 bg-green-500 bg-opacity-20 text-green-300 rounded text-xs">Mobile</span>
+                        <span class="px-2 py-1 bg-red-500 bg-opacity-20 text-red-300 rounded text-xs">Security</span>
+                        <span class="px-2 py-1 bg-blue-500 bg-opacity-20 text-blue-300 rounded text-xs">FinTech</span>
+                    </div>
+                    <div class="text-sm text-gray-400">
+                        <p><strong class="text-blue-400">Duration:</strong> 10 months</p>
+                        <p><strong class="text-blue-400">Team Size:</strong> 28 members</p>
+                        <p><strong class="text-blue-400">Result:</strong> 500K+ downloads</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8 bg-slate-900 relative overflow-hidden">
+        <div class="absolute inset-0">
+            <div class="absolute top-20 left-20 w-96 h-96 bg-blue-500 bg-opacity-5 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-20 right-20 w-80 h-80 bg-purple-500 bg-opacity-5 rounded-full blur-3xl"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="text-center mb-16 hidden-initially">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
+                    Let's <span class="gradient-text">Connect</span>
+                </h2>
+                <p class="text-xl text-gray-400 max-w-2xl mx-auto">
+                    Ready to discuss your next project? I'm here to help turn your vision into reality.
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-12">
+                <!-- Contact Information -->
+                <div class="space-y-8 hidden-initially">
+                    <div class="card rounded-xl p-6">
+                        <h3 class="text-2xl font-bold text-white mb-6">Get in Touch</h3>
+                        <p class="text-gray-300 mb-8 leading-relaxed">
+                            I'm always excited to discuss new opportunities and challenges. Whether you're looking for a 
+                            project manager to lead your next initiative or need consultation on project management best practices, 
+                            I'd love to hear from you.
+                        </p>
+
+                        <!-- Contact Details -->
+                        <div class="space-y-6">
+                            <div class="flex items-center space-x-4 group">
+                                <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-200">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="text-gray-400 text-sm">Email</p>
+                                    <a href="mailto:anarhmodi@gmail.com" class="text-white font-medium hover:text-blue-400 transition-colors duration-200">
+                                        anarhmodi@gmail.com
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center space-x-4 group">
+                                <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-200">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="text-gray-400 text-sm">Phone</p>
+                                    <a href="tel:+919722232832" class="text-white font-medium hover:text-blue-400 transition-colors duration-200">
+                                        +91 97222 32832
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center space-x-4 group">
+                                <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-200">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="text-gray-400 text-sm">Location</p>
+                                    <p class="text-white font-medium">India (Available for Remote Work)</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Availability Status -->
+                        <div class="mt-8 p-4 bg-green-500 bg-opacity-10 border border-green-500 border-opacity-30 rounded-lg">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
+                                <span class="text-green-300 font-medium">Available for Immediate Joining</span>
+                            </div>
+                            <p class="text-gray-400 text-sm mt-2">
+                                Open to full-time positions, contract work, and consulting opportunities.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="hidden-initially">
+                    <div class="card rounded-xl p-6">
+                        <h3 class="text-2xl font-bold text-white mb-6">Send a Message</h3>
+                        
+                        <!-- Status Messages -->
+                        <div id="form-success" class="hidden mb-6 p-4 bg-green-500 bg-opacity-10 border border-green-500 border-opacity-30 rounded-lg flex items-center space-x-3">
+                            <svg class="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span class="text-green-300">Message sent successfully! I'll get back to you soon.</span>
+                        </div>
+                        
+                        <div id="form-error" class="hidden mb-6 p-4 bg-red-500 bg-opacity-10 border border-red-500 border-opacity-30 rounded-lg flex items-center space-x-3">
+                            <svg class="w-6 h-6 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span class="text-red-300">Failed to send message. Please try again or contact me directly.</span>
+                        </div>
+
+                        <form id="contact-form" class="space-y-6">
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="name" class="block text-gray-300 font-medium mb-2">Full Name *</label>
+                                    <input type="text" id="name" name="name" required class="w-full px-4 py-3 bg-slate-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors duration-200" placeholder="Your full name">
+                                </div>
+                                <div>
+                                    <label for="email" class="block text-gray-300 font-medium mb-2">Email Address *</label>
+                                    <input type="email" id="email" name="email" required class="w-full px-4 py-3 bg-slate-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors duration-200" placeholder="your.email@example.com">
+                                </div>
+                            </div>
+
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="company" class="block text-gray-300 font-medium mb-2">Company</label>
+                                    <input type="text" id="company" name="company" class="w-full px-4 py-3 bg-slate-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors duration-200" placeholder="Your company name">
+                                </div>
+                                <div>
+                                    <label for="subject" class="block text-gray-300 font-medium mb-2">Subject *</label>
+                                    <input type="text" id="subject" name="subject" required class="w-full px-4 py-3 bg-slate-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors duration-200" placeholder="Project inquiry, consultation, etc.">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="message" class="block text-gray-300 font-medium mb-2">Message *</label>
+                                <textarea id="message" name="message" required rows="6" class="w-full px-4 py-3 bg-slate-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors duration-200 resize-vertical" placeholder="Tell me about your project, requirements, timeline, or any questions you have..."></textarea>
+                            </div>
+
+                            <button type="submit" id="submit-btn" class="w-full btn-primary text-white font-semibold py-3 px-6 rounded-lg flex items-center justify-center space-x-2">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                                </svg>
+                                <span>Send Message</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 border-t border-slate-800 relative overflow-hidden">
+        <div class="absolute inset-0">
+            <div class="absolute top-0 left-1/4 w-64 h-64 bg-blue-500 bg-opacity-5 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-0 right-1/4 w-80 h-80 bg-purple-500 bg-opacity-5 rounded-full blur-3xl"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto relative z-10 py-12 px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Brand Section -->
+                <div class="md:col-span-2">
+                    <h3 class="text-2xl font-bold gradient-text mb-4">Anar Modi</h3>
+                    <p class="text-gray-400 mb-6 max-w-md leading-relaxed">
+                        PMP® Certified IT Project Manager dedicated to driving digital transformation 
+                        and delivering exceptional results through strategic project management and team leadership.
+                    </p>
+                    
+                    <!-- Availability Badge -->
+                    <div class="inline-flex items-center px-4 py-2 bg-green-500 bg-opacity-10 border border-green-500 border-opacity-30 rounded-full mb-6">
+                        <div class="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></div>
+                        <span class="text-green-300 text-sm font-medium">Available for New Opportunities</span>
+                    </div>
+
+                    <!-- Social Links -->
+                    <div class="flex space-x-4">
+                        <a href="https://www.linkedin.com/in/anarmodi/" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-slate-800 hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-500 rounded-lg flex items-center justify-center text-gray-400 hover:text-white transition-all duration-300 hover:scale-110">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.338 16.338H13.67V12.16c0-.995-.017-2.277-1.387-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248H8.014v-8.59h2.559v1.174h.037c.356-.675 1.227-1.387 2.526-1.387 2.703 0 3.203 1.778 3.203 4.092v4.711zM5.005 6.575a1.548 1.548 0 11-.003-3.096 1.548 1.548 0 01.003 3.096zm-1.337 9.763H6.34v-8.59H3.667v8.59zM17.668 1H2.328C1.595 1 1 1.581 1 2.298v15.403C1 18.418 1.595 19 2.328 19h15.34c.734 0 1.332-.582 1.332-1.299V2.298C19 1.581 18.402 1 17.668 1z" clip-rule="evenodd" />
+                            </svg>
+                        </a>
+                        <a href="mailto:anarhmodi@gmail.com" class="w-10 h-10 bg-slate-800 hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-500 rounded-lg flex items-center justify-center text-gray-400 hover:text-white transition-all duration-300 hover:scale-110">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                            </svg>
+                        </a>
+                        <a href="tel:+919722232832" class="w-10 h-10 bg-slate-800 hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-500 rounded-lg flex items-center justify-center text-gray-400 hover:text-white transition-all duration-300 hover:scale-110">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-4">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#about" class="text-gray-400 hover:text-blue-400 transition-colors duration-200">About</a></li>
+                        <li><a href="#skills" class="text-gray-400 hover:text-blue-400 transition-colors duration-200">Skills</a></li>
+                        <li><a href="#experience" class="text-gray-400 hover:text-blue-400 transition-colors duration-200">Experience</a></li>
+                        <li><a href="#projects" class="text-gray-400 hover:text-blue-400 transition-colors duration-200">Projects</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-blue-400 transition-colors duration-200">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-4">Get in Touch</h4>
+                    <div class="space-y-3">
+                        <a href="mailto:anarhmodi@gmail.com" class="block text-gray-400 hover:text-blue-400 transition-colors duration-200">anarhmodi@gmail.com</a>
+                        <a href="tel:+919722232832" class="block text-gray-400 hover:text-blue-400 transition-colors duration-200">+91 97222 32832</a>
+                        <p class="text-gray-400">India (Remote Available)</p>
+                        <a href="./resume.pdf" download="Anar_Modi_Resume.pdf" class="inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors duration-200 mt-2">
+                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                            </svg>
+                            Download Resume
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Section -->
+            <div class="border-t border-slate-800 mt-12 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+                    <div class="text-center md:text-left">
+                        <p class="text-gray-400 text-sm">© 2025 Anar Modi. All rights reserved.</p>
+                        <p class="text-gray-500 text-xs mt-1">Last updated: January 2025</p>
+                    </div>
+
+                    <div class="flex items-center space-x-6">
+                        <button onclick="scrollToTop()" class="flex items-center space-x-2 text-gray-400 hover:text-blue-400 transition-colors duration-200 group">
+                            <span class="text-sm">Back to top</span>
+                            <svg class="w-4 h-4 group-hover:-translate-y-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Additional Info -->
+                <div class="mt-6 text-center">
+                    <p class="text-gray-500 text-xs">Built with HTML, Tailwind CSS, and Vanilla JavaScript • Hosted with ❤️</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Hire Me Button -->
+    <div id="floating-button" class="floating-button">
+        <!-- Quick Actions Menu -->
+        <div id="floating-menu" class="floating-menu space-y-3">
+            <button onclick="window.location.href='mailto:anarhmodi@gmail.com?subject=Project Inquiry&body=Hi Anar, I would like to discuss a project opportunity with you.'" class="flex items-center space-x-3 bg-gradient-to-r from-blue-500 to-blue-600 text-white px-4 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105 min-w-[160px] group">
+                <svg class="w-5 h-5 group-hover:scale-110 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                <span class="font-medium text-sm">Send Email</span>
+            </button>
+            
+            <button onclick="window.location.href='tel:+919722232832'" class="flex items-center space-x-3 bg-gradient-to-r from-green-500 to-green-600 text-white px-4 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105 min-w-[160px] group">
+                <svg class="w-5 h-5 group-hover:scale-110 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                </svg>
+                <span class="font-medium text-sm">Call Now</span>
+            </button>
+            
+            <button onclick="window.open('https://www.linkedin.com/in/anarmodi/', '_blank')" class="flex items-center space-x-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white px-4 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105 min-w-[160px] group">
+                <svg class="w-5 h-5 group-hover:scale-110 transition-transform duration-200" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.338 16.338H13.67V12.16c0-.995-.017-2.277-1.387-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248H8.014v-8.59h2.559v1.174h.037c.356-.675 1.227-1.387 2.526-1.387 2.703 0 3.203 1.778 3.203 4.092v4.711zM5.005 6.575a1.548 1.548 0 11-.003-3.096 1.548 1.548 0 01.003 3.096zm-1.337 9.763H6.34v-8.59H3.667v8.59zM17.668 1H2.328C1.595 1 1 1.581 1 2.298v15.403C1 18.418 1.595 19 2.328 19h15.34c.734 0 1.332-.582 1.332-1.299V2.298C19 1.581 18.402 1 17.668 1z" clip-rule="evenodd" />
+                </svg>
+                <span class="font-medium text-sm">LinkedIn</span>
+            </button>
+            
+            <button onclick="scrollToSection('#contact')" class="flex items-center space-x-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white px-4 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105 min-w-[160px] group">
+                <svg class="w-5 h-5 group-hover:scale-110 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                </svg>
+                <span class="font-medium text-sm">Contact Form</span>
+            </button>
+        </div>
+
+        <!-- Main Floating Button -->
+        <button id="main-floating-btn" class="relative w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center group hover:scale-110">
+            <!-- Pulse Animation -->
+            <div class="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full animate-ping opacity-20"></div>
+            
+            <!-- Icon -->
+            <div class="relative z-10">
+                <svg id="floating-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                </svg>
+            </div>
+
+            <!-- Availability Indicator -->
+            <div class="absolute -top-2 -right-2 w-6 h-6 bg-green-500 rounded-full border-2 border-white flex items-center justify-center">
+                <div class="w-2 h-2 bg-white rounded-full animate-pulse"></div>
+            </div>
+        </button>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Initialize EmailJS
+        emailjs.init('YOUR_PUBLIC_KEY'); // Replace with your EmailJS public key
+
+        // Navigation scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 10) {
+                navbar.classList.add('nav-scrolled');
+            } else {
+                navbar.classList.remove('nav-scrolled');
+            }
+
+            // Show/hide floating button
+            const floatingButton = document.getElementById('floating-button');
+            if (window.scrollY > 100) {
+                floatingButton.classList.add('show');
+            } else {
+                floatingButton.classList.remove('show');
+            }
+        });
+
+        // Mobile menu functionality
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeMenuBtn = document.getElementById('close-menu-btn');
+
+        mobileMenuBtn.addEventListener('click', function() {
+            mobileMenu.classList.add('open');
+        });
+
+        closeMenuBtn.addEventListener('click', function() {
+            mobileMenu.classList.remove('open');
+        });
+
+        // Close mobile menu when clicking on nav links
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenu.classList.remove('open');
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        function scrollToSection(target) {
+            const element = document.querySelector(target);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Add click listeners to nav links
+        document.querySelectorAll('.nav-link, .mobile-nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = this.getAttribute('href');
+                scrollToSection(target);
+            });
+        });
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('reveal');
+                    
+                    // Special handling for skills section
+                    if (entry.target.closest('#skills')) {
+                        animateSkillBars();
+                    }
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements with hidden-initially class
+        document.querySelectorAll('.hidden-initially').forEach(element => {
+            observer.observe(element);
+        });
+
+        // Animate skill bars
+        function animateSkillBars() {
+            const skillBars = document.querySelectorAll('.skill-bar');
+            skillBars.forEach((bar, index) => {
+                setTimeout(() => {
+                    bar.classList.add('animate');
+                }, index * 200);
+            });
+        }
+
+        // Floating button functionality
+        const mainFloatingBtn = document.getElementById('main-floating-btn');
+        const floatingMenu = document.getElementById('floating-menu');
+        const floatingIcon = document.getElementById('floating-icon');
+        let isMenuOpen = false;
+
+        mainFloatingBtn.addEventListener('click', function() {
+            isMenuOpen = !isMenuOpen;
+            
+            if (isMenuOpen) {
+                floatingMenu.classList.add('show');
+                mainFloatingBtn.style.transform = 'rotate(45deg)';
+                floatingIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />';
+            } else {
+                floatingMenu.classList.remove('show');
+                mainFloatingBtn.style.transform = 'rotate(0deg)';
+                floatingIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />';
+            }
+        });
+
+        // Contact form handling
+        const contactForm = document.getElementById('contact-form');
+        const submitBtn = document.getElementById('submit-btn');
+        const formSuccess = document.getElementById('form-success');
+        const formError = document.getElementById('form-error');
+
+        contactForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            // Show loading state
+            submitBtn.innerHTML = '<div class="loading-spinner"></div><span>Sending...</span>';
+            submitBtn.disabled = true;
+            
+            // Hide previous messages
+            formSuccess.classList.add('hidden');
+            formError.classList.add('hidden');
+
+            try {
+                // Replace with your EmailJS service and template IDs
+                const result = await emailjs.sendForm(
+                    'YOUR_SERVICE_ID', // Replace with your service ID
+                    'YOUR_TEMPLATE_ID', // Replace with your template ID
+                    contactForm
+                );
+
+                if (result.text === 'OK') {
+                    formSuccess.classList.remove('hidden');
+                    contactForm.reset();
+                } else {
+                    throw new Error('Failed to send');
+                }
+            } catch (error) {
+                console.error('EmailJS Error:', error);
+                formError.classList.remove('hidden');
+            } finally {
+                // Reset button state
+                submitBtn.innerHTML = '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" /></svg><span>Send Message</span>';
+                submitBtn.disabled = false;
+            }
+        });
+
+        // Add staggered animation delays to elements
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add animation delays to hero elements
+            const heroElements = document.querySelectorAll('#home .animate-fade-in-up');
+            heroElements.forEach((element, index) => {
+                element.style.animationDelay = `${0.2 + (index * 0.2)}s`;
+            });
+        });
+    </script>
+</body>
+</html>
