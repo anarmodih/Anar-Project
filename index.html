@@ -5,12 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anar Modi - PMP® Certified IT Project Manager</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        /* Custom animations */
+        /* Custom CSS Variables */
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --dark-gradient: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+        }
+
+        /* Enhanced Animations */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(50px);
             }
             to {
                 opacity: 1;
@@ -21,7 +30,7 @@
         @keyframes fadeInLeft {
             from {
                 opacity: 0;
-                transform: translateX(-30px);
+                transform: translateX(-50px);
             }
             to {
                 opacity: 1;
@@ -32,7 +41,7 @@
         @keyframes fadeInRight {
             from {
                 opacity: 0;
-                transform: translateX(30px);
+                transform: translateX(50px);
             }
             to {
                 opacity: 1;
@@ -40,27 +49,74 @@
             }
         }
 
-        @keyframes pulse {
+        @keyframes slideInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.8) translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        @keyframes float {
             0%, 100% {
-                transform: scale(1);
+                transform: translateY(0px);
             }
             50% {
-                transform: scale(1.05);
-            }
-        }
-
-        @keyframes bounce {
-            0%, 20%, 53%, 80%, 100% {
-                transform: translateY(0);
-            }
-            40%, 43% {
                 transform: translateY(-10px);
             }
-            70% {
-                transform: translateY(-5px);
+        }
+
+        @keyframes glow {
+            from {
+                box-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+            }
+            to {
+                box-shadow: 0 0 20px rgba(255, 255, 255, 0.6), 0 0 30px rgba(255, 255, 255, 0.4);
             }
         }
 
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        @keyframes blink {
+            from, to { border-color: transparent }
+            50% { border-color: white }
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes particleFloat {
+            0%, 100% {
+                transform: translateY(0px) rotate(0deg);
+                opacity: 1;
+            }
+            50% {
+                transform: translateY(-20px) rotate(180deg);
+                opacity: 0.7;
+            }
+        }
+
+        @keyframes ripple {
+            0% {
+                transform: scale(0);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+
+        /* Animation Classes */
         .animate-fade-in-up {
             animation: fadeInUp 0.8s ease-out forwards;
         }
@@ -73,24 +129,198 @@
             animation: fadeInRight 0.8s ease-out forwards;
         }
 
-        .animate-pulse-custom {
-            animation: pulse 2s infinite;
+        .animate-slide-in-scale {
+            animation: slideInScale 0.8s ease-out forwards;
         }
 
-        .animate-bounce-custom {
-            animation: bounce 2s infinite;
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
         }
 
-        /* Initially hidden elements for scroll animations */
+        .animate-glow {
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        .animate-particle {
+            animation: particleFloat 4s ease-in-out infinite;
+        }
+
+        /* Enhanced Body Background */
+        body {
+            background: linear-gradient(-45deg, #667eea, #764ba2, #f093fb, #f5576c, #4facfe, #00f2fe);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Particle Background */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+        }
+
+        /* Glass Morphism Effect */
+        .glass {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+        }
+
+        .glass-dark {
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+        }
+
+        /* Enhanced Button Styles */
+        .btn-primary {
+            background: var(--primary-gradient);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            transition: all 0.5s;
+            transform: translate(-50%, -50%);
+        }
+
+        .btn-primary:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-secondary {
+            background: var(--accent-gradient);
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Card Styles */
+        .card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Typing Animation */
+        .typewriter {
+            overflow: hidden;
+            border-right: 3px solid white;
+            white-space: nowrap;
+            margin: 0 auto;
+            animation: typing 3.5s steps(40, end), blink 0.75s step-end infinite;
+        }
+
+        /* Skill Progress Bars */
+        .skill-bar {
+            height: 8px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: var(--accent-gradient);
+            border-radius: 10px;
+            transition: width 2s ease-in-out;
+            position: relative;
+        }
+
+        .skill-progress::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .mobile-stack {
+                flex-direction: column;
+            }
+            
+            .mobile-full {
+                width: 100%;
+                margin-bottom: 1rem;
+            }
+            
+            .text-responsive {
+                font-size: clamp(1.5rem, 4vw, 3rem);
+            }
+            
+            .mobile-padding {
+                padding: 1rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .sm-text-center {
+                text-align: center;
+            }
+            
+            .sm-hidden {
+                display: none;
+            }
+        }
+
+        /* Scroll Reveal */
         .hidden-initially {
             opacity: 0;
-            transform: translateY(30px);
+            transform: translateY(50px);
         }
 
         .reveal {
             opacity: 1;
             transform: translateY(0);
-            transition: all 0.8s ease-out;
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         /* Smooth scrolling */
@@ -98,78 +328,474 @@
             scroll-behavior: smooth;
         }
 
-        /* Button hover effects */
-        .btn-hover {
+        /* Loading Screen */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--primary-gradient);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease-out;
+        }
+
+        .loading-spinner {
+            width: 60px;
+            height: 60px;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-top: 4px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Navigation Dots */
+        .nav-dots {
+            position: fixed;
+            right: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 100;
+        }
+
+        .nav-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            margin: 0.5rem 0;
+            cursor: pointer;
             transition: all 0.3s ease;
         }
 
-        .btn-hover:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        .nav-dot.active {
+            background: white;
+            transform: scale(1.3);
         }
 
-        /* Skills list animation */
-        .skill-item {
-            opacity: 0;
-            transform: translateX(-20px);
-            transition: all 0.5s ease;
+        /* Timeline Styles */
+        .timeline-item {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 2rem;
         }
 
-        .skill-item.animate {
-            opacity: 1;
-            transform: translateX(0);
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+            width: 12px;
+            height: 12px;
+            background: var(--accent-gradient);
+            border-radius: 50%;
+            border: 3px solid white;
         }
 
-        /* Gradient animation for body */
-        body {
-            background: linear-gradient(-45deg, #8B5CF6, #06B6D4, #8B5CF6, #06B6D4);
-            background-size: 400% 400%;
-            animation: gradientShift 8s ease infinite;
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 1.5rem;
+            width: 2px;
+            height: calc(100% + 1rem);
+            background: rgba(255, 255, 255, 0.3);
         }
 
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        .timeline-item:last-child::after {
+            display: none;
         }
     </style>
 </head>
-<body class="text-white">
-    <header class="text-center py-10">
-        <h1 class="text-4xl font-bold animate-fade-in-up" style="animation-delay: 0.2s;">Anar Modi</h1>
-        <p class="text-lg mt-2 animate-fade-in-up" style="animation-delay: 0.4s;">PMP® Certified IT Project Manager | Driving Agile Success</p>
-        <span class="bg-yellow-400 text-black px-3 py-1 rounded-full mt-3 inline-block animate-pulse-custom animate-fade-in-up" style="animation-delay: 0.6s;">Available for Immediate Join</span>
-        <div class="mt-5 space-x-3 animate-fade-in-up" style="animation-delay: 0.8s;">
-            <a href="#contact" class="bg-white text-purple-700 px-4 py-2 rounded btn-hover">Contact Me</a>
-            <a href="Profile.pdf" download class="bg-white text-purple-700 px-4 py-2 rounded btn-hover">Download Resume</a>
-            <a href="https://www.linkedin.com/in/anarmodi/" target="_blank" class="bg-white text-purple-700 px-4 py-2 rounded btn-hover">View LinkedIn Profile</a>
+<body class="text-white relative">
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <!-- Particle Background -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Navigation Dots -->
+    <div class="nav-dots hidden md:block">
+        <div class="nav-dot active" data-section="header"></div>
+        <div class="nav-dot" data-section="about"></div>
+        <div class="nav-dot" data-section="skills"></div>
+        <div class="nav-dot" data-section="experience"></div>
+        <div class="nav-dot" data-section="contact"></div>
+    </div>
+
+    <!-- Header Section -->
+    <header id="header" class="min-h-screen flex items-center justify-center text-center relative z-10">
+        <div class="glass p-8 md:p-12 mx-4 max-w-4xl w-full">
+            <div class="animate-float">
+                <div class="w-32 h-32 md:w-40 md:h-40 mx-auto mb-6 rounded-full bg-gradient-to-r from-purple-400 to-pink-400 p-1 animate-glow">
+                    <div class="w-full h-full rounded-full bg-white flex items-center justify-center">
+                        <i class="fas fa-user-tie text-4xl md:text-5xl text-purple-600"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold animate-fade-in-up mb-4" style="animation-delay: 0.2s;">
+                Anar Modi
+            </h1>
+            
+            <div class="typewriter text-lg md:text-xl lg:text-2xl mb-6" style="animation-delay: 0.8s;">
+                PMP® Certified IT Project Manager | Driving Agile Success
+            </div>
+            
+            <div class="animate-slide-in-scale mb-8" style="animation-delay: 1.2s;">
+                <span class="bg-gradient-to-r from-yellow-400 to-orange-500 text-black px-4 py-2 rounded-full font-semibold animate-glow inline-flex items-center">
+                    <i class="fas fa-bolt mr-2"></i>
+                    Available for Immediate Join
+                </span>
+            </div>
+            
+            <div class="flex flex-wrap justify-center gap-4 animate-fade-in-up" style="animation-delay: 1.6s;">
+                <a href="#contact" class="btn-primary px-6 py-3 rounded-full font-semibold text-white inline-flex items-center relative z-10">
+                    <i class="fas fa-envelope mr-2"></i>
+                    Contact Me
+                </a>
+                <a href="Profile.pdf" download class="btn-secondary px-6 py-3 rounded-full font-semibold text-white inline-flex items-center">
+                    <i class="fas fa-download mr-2"></i>
+                    Download Resume
+                </a>
+                <a href="https://www.linkedin.com/in/anarmodi/" target="_blank" class="btn-primary px-6 py-3 rounded-full font-semibold text-white inline-flex items-center relative z-10">
+                    <i class="fab fa-linkedin mr-2"></i>
+                    LinkedIn Profile
+                </a>
+            </div>
         </div>
     </header>
-    <main class="px-5">
-        <section id="about" class="my-10 hidden-initially">
-            <h2 class="text-2xl font-bold mb-4">About Me</h2>
-            <p>I am a PMP®-certified Project Manager with over 6+ years in the IT industry and 4+ years leading Agile and Scrum-based delivery across SaaS, e‑commerce, CMS, and mobile/web applications. I have managed cross-functional teams of up to 48 members, delivering projects on time and within budget, and driving digital transformation initiatives for global clients.</p>
+
+    <!-- Main Content -->
+    <main class="relative z-10">
+        <!-- About Section -->
+        <section id="about" class="min-h-screen flex items-center py-20 mobile-padding">
+            <div class="container mx-auto px-4 max-w-6xl">
+                <div class="glass-dark p-8 md:p-12 card hidden-initially">
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                        <div class="animate-fade-in-left">
+                            <h2 class="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                                <i class="fas fa-user-circle mr-3"></i>About Me
+                            </h2>
+                            <p class="text-lg leading-relaxed mb-6">
+                                I am a <span class="font-semibold text-yellow-300">PMP®-certified Project Manager</span> with over 
+                                <span class="font-semibold text-green-300">6+ years</span> in the IT industry and 
+                                <span class="font-semibold text-blue-300">4+ years</span> leading Agile and Scrum-based delivery across 
+                                SaaS, e‑commerce, CMS, and mobile/web applications.
+                            </p>
+                            <p class="text-lg leading-relaxed">
+                                I have managed cross-functional teams of up to <span class="font-semibold text-purple-300">48 members</span>, 
+                                delivering projects on time and within budget, and driving digital transformation initiatives for global clients.
+                            </p>
+                        </div>
+                        <div class="animate-fade-in-right">
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="glass p-4 text-center card">
+                                    <i class="fas fa-calendar-alt text-3xl text-purple-400 mb-2"></i>
+                                    <div class="text-2xl font-bold">6+</div>
+                                    <div class="text-sm">Years Experience</div>
+                                </div>
+                                <div class="glass p-4 text-center card">
+                                    <i class="fas fa-users text-3xl text-green-400 mb-2"></i>
+                                    <div class="text-2xl font-bold">48</div>
+                                    <div class="text-sm">Team Members</div>
+                                </div>
+                                <div class="glass p-4 text-center card">
+                                    <i class="fas fa-project-diagram text-3xl text-blue-400 mb-2"></i>
+                                    <div class="text-2xl font-bold">50+</div>
+                                    <div class="text-sm">Projects Delivered</div>
+                                </div>
+                                <div class="glass p-4 text-center card">
+                                    <i class="fas fa-certificate text-3xl text-yellow-400 mb-2"></i>
+                                    <div class="text-2xl font-bold">PMP®</div>
+                                    <div class="text-sm">Certified</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
-        <section id="skills" class="my-10 hidden-initially">
-            <h2 class="text-2xl font-bold mb-4">Skills</h2>
-            <ul class="list-disc pl-5" id="skills-list">
-                <li class="skill-item">Agile Project Management, Scrum Master, Kanban, Waterfall</li>
-                <li class="skill-item">Risk Management, Stakeholder Management, Budget Control</li>
-                <li class="skill-item">Tools: Jira, Monday.com, ClickUp, Zoho Projects, Trello</li>
-                <li class="skill-item">Tech: SaaS, CMS, PWA, E‑commerce, WordPress, React, Node.js</li>
-            </ul>
+
+        <!-- Skills Section -->
+        <section id="skills" class="min-h-screen flex items-center py-20 mobile-padding">
+            <div class="container mx-auto px-4 max-w-6xl">
+                <div class="glass-dark p-8 md:p-12 card hidden-initially">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                        <i class="fas fa-cogs mr-3"></i>Skills & Expertise
+                    </h2>
+                    
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- Project Management -->
+                        <div class="glass p-6 card skill-category">
+                            <div class="flex items-center mb-4">
+                                <i class="fas fa-tasks text-2xl text-purple-400 mr-3"></i>
+                                <h3 class="text-xl font-semibold">Project Management</h3>
+                            </div>
+                            <div class="space-y-3">
+                                <div class="skill-item">
+                                    <div class="flex justify-between mb-1">
+                                        <span>Agile/Scrum</span>
+                                        <span>95%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress" data-width="95"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-item">
+                                    <div class="flex justify-between mb-1">
+                                        <span>Kanban</span>
+                                        <span>90%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress" data-width="90"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-item">
+                                    <div class="flex justify-between mb-1">
+                                        <span>Waterfall</span>
+                                        <span>85%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress" data-width="85"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Management Skills -->
+                        <div class="glass p-6 card skill-category">
+                            <div class="flex items-center mb-4">
+                                <i class="fas fa-chart-line text-2xl text-green-400 mr-3"></i>
+                                <h3 class="text-xl font-semibold">Management</h3>
+                            </div>
+                            <div class="space-y-3">
+                                <div class="skill-item">
+                                    <div class="flex justify-between mb-1">
+                                        <span>Risk Management</span>
+                                        <span>92%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress" data-width="92"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-item">
+                                    <div class="flex justify-between mb-1">
+                                        <span>Stakeholder Management</span>
+                                        <span>88%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress" data-width="88"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-item">
+                                    <div class="flex justify-between mb-1">
+                                        <span>Budget Control</span>
+                                        <span>90%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress" data-width="90"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tools & Technologies -->
+                        <div class="glass p-6 card skill-category md:col-span-2 lg:col-span-1">
+                            <div class="flex items-center mb-4">
+                                <i class="fas fa-tools text-2xl text-blue-400 mr-3"></i>
+                                <h3 class="text-xl font-semibold">Tools & Tech</h3>
+                            </div>
+                            <div class="space-y-3">
+                                <div class="skill-item">
+                                    <div class="flex justify-between mb-1">
+                                        <span>Jira/Monday.com</span>
+                                        <span>95%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress" data-width="95"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-item">
+                                    <div class="flex justify-between mb-1">
+                                        <span>SaaS/CMS</span>
+                                        <span>88%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress" data-width="88"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-item">
+                                    <div class="flex justify-between mb-1">
+                                        <span>React/Node.js</span>
+                                        <span>82%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress" data-width="82"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
-        <section id="contact" class="my-10 hidden-initially">
-            <h2 class="text-2xl font-bold mb-4">Contact</h2>
-            <p>Email: <a href="mailto:anarhmodi@gmail.com" class="underline hover:text-yellow-300 transition-colors">anarhmodi@gmail.com</a></p>
-            <p>Phone: <a href="tel:+919722232832" class="underline hover:text-yellow-300 transition-colors">+91 97222 32832</a></p>
+
+        <!-- Experience Timeline -->
+        <section id="experience" class="min-h-screen flex items-center py-20 mobile-padding">
+            <div class="container mx-auto px-4 max-w-4xl">
+                <div class="glass-dark p-8 md:p-12 card hidden-initially">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent">
+                        <i class="fas fa-briefcase mr-3"></i>Experience Highlights
+                    </h2>
+                    
+                    <div class="timeline">
+                        <div class="timeline-item hidden-initially">
+                            <div class="glass p-6 card">
+                                <h3 class="text-xl font-semibold mb-2">Senior Project Manager</h3>
+                                <p class="text-purple-300 mb-3">2020 - Present</p>
+                                <p class="text-gray-300">Leading cross-functional teams of up to 48 members, delivering complex SaaS and e-commerce solutions with 100% on-time delivery rate.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item hidden-initially">
+                            <div class="glass p-6 card">
+                                <h3 class="text-xl font-semibold mb-2">Agile Project Manager</h3>
+                                <p class="text-purple-300 mb-3">2018 - 2020</p>
+                                <p class="text-gray-300">Implemented Agile methodologies across multiple projects, improving delivery efficiency by 40% and client satisfaction by 35%.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item hidden-initially">
+                            <div class="glass p-6 card">
+                                <h3 class="text-xl font-semibold mb-2">IT Project Coordinator</h3>
+                                <p class="text-purple-300 mb-3">2016 - 2018</p>
+                                <p class="text-gray-300">Coordinated multiple IT projects simultaneously, ensuring seamless communication between stakeholders and development teams.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="min-h-screen flex items-center py-20 mobile-padding">
+            <div class="container mx-auto px-4 max-w-4xl">
+                <div class="glass-dark p-8 md:p-12 card hidden-initially">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center bg-gradient-to-r from-pink-400 to-red-400 bg-clip-text text-transparent">
+                        <i class="fas fa-envelope mr-3"></i>Let's Connect
+                    </h2>
+                    
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="space-y-6">
+                            <div class="flex items-center space-x-4 glass p-4 rounded-lg card">
+                                <div class="w-12 h-12 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-envelope text-white"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold">Email</h3>
+                                    <a href="mailto:anarhmodi@gmail.com" class="text-purple-300 hover:text-white transition-colors">
+                                        anarhmodi@gmail.com
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center space-x-4 glass p-4 rounded-lg card">
+                                <div class="w-12 h-12 bg-gradient-to-r from-green-400 to-blue-400 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-phone text-white"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold">Phone</h3>
+                                    <a href="tel:+919722232832" class="text-green-300 hover:text-white transition-colors">
+                                        +91 97222 32832
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center space-x-4 glass p-4 rounded-lg card">
+                                <div class="w-12 h-12 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full flex items-center justify-center">
+                                    <i class="fab fa-linkedin text-white"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold">LinkedIn</h3>
+                                    <a href="https://www.linkedin.com/in/anarmodi/" target="_blank" class="text-blue-300 hover:text-white transition-colors">
+                                        linkedin.com/in/anarmodi
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="glass p-6 rounded-lg">
+                            <h3 class="text-xl font-semibold mb-4">Ready to collaborate?</h3>
+                            <p class="text-gray-300 mb-6">
+                                I'm always open to discussing new opportunities and exciting projects. 
+                                Let's connect and explore how we can work together to achieve your goals.
+                            </p>
+                            <div class="flex flex-wrap gap-3">
+                                <span class="bg-gradient-to-r from-purple-500 to-pink-500 px-3 py-1 rounded-full text-sm">
+                                    Project Management
+                                </span>
+                                <span class="bg-gradient-to-r from-green-500 to-blue-500 px-3 py-1 rounded-full text-sm">
+                                    Agile Leadership
+                                </span>
+                                <span class="bg-gradient-to-r from-yellow-500 to-red-500 px-3 py-1 rounded-full text-sm">
+                                    Team Building
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
-    <footer class="text-center py-5 mt-10 bg-purple-800 bg-opacity-80 hidden-initially">
-        <p>&copy; 2025 Anar Modi | Last Updated: July 2025</p>
+
+    <!-- Footer -->
+    <footer class="py-8 mt-20 glass-dark mx-4 mb-4 rounded-lg hidden-initially">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-gray-300">
+                &copy; 2025 Anar Modi | Last Updated: January 2025 | 
+                <span class="text-purple-300">Crafted with passion and precision</span>
+            </p>
+        </div>
     </footer>
 
     <script>
+        // Loading Screen
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('loadingScreen').style.opacity = '0';
+                setTimeout(() => {
+                    document.getElementById('loadingScreen').style.display = 'none';
+                }, 500);
+            }, 1500);
+        });
+
+        // Particle Background
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = window.innerWidth < 768 ? 30 : 50;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle animate-particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 4 + 's';
+                particle.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+
         // Intersection Observer for scroll animations
         const observerOptions = {
             threshold: 0.1,
@@ -181,30 +807,54 @@
                 if (entry.isIntersecting) {
                     entry.target.classList.add('reveal');
                     
-                    // Special handling for skills section
+                    // Special animations for different sections
                     if (entry.target.id === 'skills') {
-                        animateSkills();
+                        animateSkillBars();
                     }
+                    
+                    // Update navigation dots
+                    updateNavDots(entry.target.id);
                 }
             });
         }, observerOptions);
 
-        // Observe all sections with hidden-initially class
+        // Observe all sections
         document.querySelectorAll('.hidden-initially').forEach(section => {
             observer.observe(section);
         });
 
-        // Animate skills list items with staggered delay
-        function animateSkills() {
-            const skillItems = document.querySelectorAll('.skill-item');
-            skillItems.forEach((item, index) => {
+        // Animate skill bars
+        function animateSkillBars() {
+            const skillBars = document.querySelectorAll('.skill-progress');
+            skillBars.forEach((bar, index) => {
                 setTimeout(() => {
-                    item.classList.add('animate');
+                    const width = bar.getAttribute('data-width');
+                    bar.style.width = width + '%';
                 }, index * 200);
             });
         }
 
-        // Add smooth scroll behavior for internal links
+        // Navigation dots functionality
+        function updateNavDots(activeSection) {
+            document.querySelectorAll('.nav-dot').forEach(dot => {
+                dot.classList.remove('active');
+                if (dot.getAttribute('data-section') === activeSection) {
+                    dot.classList.add('active');
+                }
+            });
+        }
+
+        // Navigation dot click handlers
+        document.querySelectorAll('.nav-dot').forEach(dot => {
+            dot.addEventListener('click', () => {
+                const section = dot.getAttribute('data-section');
+                document.getElementById(section).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Smooth scroll for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -218,21 +868,74 @@
             });
         });
 
-        // Add loading animation
-        window.addEventListener('load', () => {
-            document.body.style.opacity = '1';
-        });
-
-        // Initial page load animation
-        document.addEventListener('DOMContentLoaded', () => {
-            // Ensure header animations start immediately
-            document.querySelectorAll('header [class*="animate-fade-in-up"]').forEach(el => {
-                el.style.opacity = '0';
+        // Button ripple effect
+        document.querySelectorAll('.btn-primary, .btn-secondary').forEach(button => {
+            button.addEventListener('click', function(e) {
+                const ripple = document.createElement('span');
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+                
+                ripple.style.width = ripple.style.height = size + 'px';
+                ripple.style.left = x + 'px';
+                ripple.style.top = y + 'px';
+                ripple.classList.add('ripple');
+                
+                this.appendChild(ripple);
+                
                 setTimeout(() => {
-                    el.style.opacity = '1';
-                }, 100);
+                    ripple.remove();
+                }, 600);
             });
         });
+
+        // Initialize particles on load
+        document.addEventListener('DOMContentLoaded', () => {
+            createParticles();
+            
+            // Add staggered animations to timeline items
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            timelineItems.forEach((item, index) => {
+                item.style.animationDelay = (index * 0.2) + 's';
+            });
+        });
+
+        // Responsive navigation
+        window.addEventListener('resize', () => {
+            // Recreate particles on resize for better performance
+            const particlesContainer = document.getElementById('particles');
+            particlesContainer.innerHTML = '';
+            createParticles();
+        });
+
+        // Add scroll-based parallax effect
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallax = document.querySelectorAll('.animate-float');
+            const speed = 0.5;
+            
+            parallax.forEach(element => {
+                const yPos = -(scrolled * speed);
+                element.style.transform = `translateY(${yPos}px)`;
+            });
+        });
+
+        // Add typing effect restart on scroll
+        let typingObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const typewriter = entry.target.querySelector('.typewriter');
+                    if (typewriter) {
+                        typewriter.style.animation = 'none';
+                        typewriter.offsetHeight; // Trigger reflow
+                        typewriter.style.animation = 'typing 3.5s steps(40, end), blink 0.75s step-end infinite';
+                    }
+                }
+            });
+        });
+
+        typingObserver.observe(document.getElementById('header'));
     </script>
 </body>
 </html>
