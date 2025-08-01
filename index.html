@@ -7,152 +7,43 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        /* Custom CSS Variables */
         :root {
-            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-            --dark-gradient: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            --primary-gradient: linear-gradient(135deg, #2563eb 0%, #38bdf8 100%);
+            --secondary-gradient: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+            --accent-gradient: linear-gradient(135deg, #38bdf8 0%, #06b6d4 100%);
+            --dark-gradient: linear-gradient(135deg, #232526 0%, #414345 100%);
         }
 
         /* Enhanced Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(50px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeInLeft { from { opacity: 0; transform: translateX(-50px); } to { opacity: 1; transform: translateX(0); } }
+        @keyframes fadeInRight { from { opacity: 0; transform: translateX(50px); } to { opacity: 1; transform: translateX(0); } }
+        @keyframes slideInScale { from { opacity: 0; transform: scale(0.8) translateY(30px); } to { opacity: 1; transform: scale(1) translateY(0); } }
+        @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-10px); } }
+        @keyframes glow { from { box-shadow: 0 0 5px rgba(59,130,246,0.3); } to { box-shadow: 0 0 20px rgba(59,130,246,0.6), 0 0 30px rgba(59,130,246,0.4); } }
+        @keyframes typing { from { width: 0 } to { width: 100% } }
+        @keyframes blink { from, to { border-color: transparent } 50% { border-color: #2563eb } }
+        @keyframes gradientShift { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+        @keyframes particleFloat { 0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 1; } 50% { transform: translateY(-20px) rotate(180deg); opacity: 0.7; } }
+        @keyframes ripple { 0% { transform: scale(0); opacity: 1; } 100% { transform: scale(4); opacity: 0; } }
 
-        @keyframes fadeInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
+        .animate-fade-in-up { animation: fadeInUp 0.8s ease-out forwards; }
+        .animate-fade-in-left { animation: fadeInLeft 0.8s ease-out forwards; }
+        .animate-fade-in-right { animation: fadeInRight 0.8s ease-out forwards; }
+        .animate-slide-in-scale { animation: slideInScale 0.8s ease-out forwards; }
+        .animate-float { animation: float 3s ease-in-out infinite; }
+        .animate-glow { animation: glow 2s ease-in-out infinite alternate; }
+        .animate-particle { animation: particleFloat 4s ease-in-out infinite; }
 
-        @keyframes fadeInRight {
-            from {
-                opacity: 0;
-                transform: translateX(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes slideInScale {
-            from {
-                opacity: 0;
-                transform: scale(0.8) translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1) translateY(0);
-            }
-        }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0px);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
-        }
-
-        @keyframes glow {
-            from {
-                box-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
-            }
-            to {
-                box-shadow: 0 0 20px rgba(255, 255, 255, 0.6), 0 0 30px rgba(255, 255, 255, 0.4);
-            }
-        }
-
-        @keyframes typing {
-            from { width: 0 }
-            to { width: 100% }
-        }
-
-        @keyframes blink {
-            from, to { border-color: transparent }
-            50% { border-color: white }
-        }
-
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        @keyframes particleFloat {
-            0%, 100% {
-                transform: translateY(0px) rotate(0deg);
-                opacity: 1;
-            }
-            50% {
-                transform: translateY(-20px) rotate(180deg);
-                opacity: 0.7;
-            }
-        }
-
-        @keyframes ripple {
-            0% {
-                transform: scale(0);
-                opacity: 1;
-            }
-            100% {
-                transform: scale(4);
-                opacity: 0;
-            }
-        }
-
-        /* Animation Classes */
-        .animate-fade-in-up {
-            animation: fadeInUp 0.8s ease-out forwards;
-        }
-
-        .animate-fade-in-left {
-            animation: fadeInLeft 0.8s ease-out forwards;
-        }
-
-        .animate-fade-in-right {
-            animation: fadeInRight 0.8s ease-out forwards;
-        }
-
-        .animate-slide-in-scale {
-            animation: slideInScale 0.8s ease-out forwards;
-        }
-
-        .animate-float {
-            animation: float 3s ease-in-out infinite;
-        }
-
-        .animate-glow {
-            animation: glow 2s ease-in-out infinite alternate;
-        }
-
-        .animate-particle {
-            animation: particleFloat 4s ease-in-out infinite;
-        }
-
-        /* Enhanced Body Background */
-        body {
-            background: linear-gradient(-45deg, #667eea, #764ba2, #f093fb, #f5576c, #4facfe, #00f2fe);
-            background-size: 400% 400%;
-            animation: gradientShift 15s ease infinite;
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
+        /* Professional Body Background */
+ body {
+    /* background: linear-gradient(135deg, #232526 0%, #414345 40%, #e3e9f0 100%); */
+        background: #e3e9f0 ;
+    background-color: #e3e9f0;
+    min-height: 100vh;
+    overflow-x: hidden;
+    color: #e5e7eb;
+}   
 
         /* Particle Background */
         .particles {
@@ -164,272 +55,170 @@
             pointer-events: none;
             z-index: 1;
         }
-
         .particle {
             position: absolute;
             width: 4px;
             height: 4px;
-            background: rgba(255, 255, 255, 0.6);
+            background: rgba(59,130,246,0.15);
             border-radius: 50%;
         }
 
-        /* Glass Morphism Effect */
+        /* Glass Morphism Effect - DARK */
         .glass {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(36, 44, 56, 0.92);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            /* border: 1px solid rgba(80, 100, 120, 0.15); */
+            border: 2px solid white;
             border-radius: 20px;
+            color: #e5e7eb;
         }
-
         .glass-dark {
-            background: rgba(0, 0, 0, 0.2);
+            background: rgba(28, 34, 44, 0.96);
             backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(80, 100, 120, 0.10);
             border-radius: 20px;
+            color: #e5e7eb;
+        }
+        /* Ensure all text inside glass is light */
+        .glass *, .glass-dark * {
+            color: #e5e7eb !important;
         }
 
-        /* Enhanced Button Styles */
-        .btn-primary {
-            background: var(--primary-gradient);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-        }
+        /* Headline Gradient */
+        .bg-gradient-to-r.from-blue-600.to-blue-400.bg-clip-text.text-transparent,
+.bg-gradient-to-r.from-green-400.to-blue-400.bg-clip-text.text-transparent,
+.bg-gradient-to-r.from-purple-400.to-blue-400.bg-clip-text.text-transparent,
+.bg-gradient-to-r.from-yellow-400.to-pink-400.bg-clip-text.text-transparent,
+.bg-gradient-to-r.from-green-400.to-yellow-400.bg-clip-text.text-transparent,
+.bg-gradient-to-r.from-blue-400.to-green-400.bg-clip-text.text-transparent,
+.bg-gradient-to-r.from-pink-400.to-red-400.bg-clip-text.text-transparent {
+    background: linear-gradient(90deg, #2563eb 0%, #38bdf8 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    color: transparent !important;
+}
 
-        .btn-primary::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            background: rgba(255, 255, 255, 0.3);
-            border-radius: 50%;
-            transition: all 0.5s;
-            transform: translate(-50%, -50%);
-        }
+/* Button Styles */
+.btn-primary, .btn-secondary {
+    background: linear-gradient(90deg, #2563eb 0%, #38bdf8 100%) !important;
+    color: #fff !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+.btn-primary:hover, .btn-secondary:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
 
-        .btn-primary:hover::before {
-            width: 300px;
-            height: 300px;
-        }
+/* Remove colored text classes from content inside glass boxes */
+.text-gray-300, .text-purple-300, .text-blue-300, .text-green-300, .text-yellow-300, .text-pink-300, .text-cyan-300, .text-orange-300 {
+    color: inherit !important;
+}
 
-        .btn-primary:hover {
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-        }
-
-        .btn-secondary {
-            background: var(--accent-gradient);
-            transition: all 0.3s ease;
-        }
-
-        .btn-secondary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        /* Card Styles */
-        .card {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .card:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-        }
-
-        /* Typing Animation */
-        .typewriter {
-            overflow: hidden;
-            border-right: 3px solid white;
-            white-space: nowrap;
-            margin: 0 auto;
-            animation: typing 3.5s steps(40, end), blink 0.75s step-end infinite;
-        }
-
-        /* Skill Progress Bars */
-        .skill-bar {
-            height: 8px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 10px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .skill-progress {
-            height: 100%;
-            background: var(--accent-gradient);
-            border-radius: 10px;
-            transition: width 2s ease-in-out;
-            position: relative;
-        }
-
-        .skill-progress::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-            animation: shimmer 2s infinite;
-        }
-
-        @keyframes shimmer {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
-        }
-
-        /* Responsive Design */
+/* Responsive Design */
         @media (max-width: 768px) {
-            .mobile-stack {
-                flex-direction: column;
-            }
-            
-            .mobile-full {
-                width: 100%;
-                margin-bottom: 1rem;
-            }
-            
-            .text-responsive {
-                font-size: clamp(1.5rem, 4vw, 3rem);
-            }
-            
-            .mobile-padding {
-                padding: 1rem;
-            }
+            .mobile-stack { flex-direction: column; }
+            .mobile-full { width: 100%; margin-bottom: 1rem; }
+            .text-responsive { font-size: clamp(1.5rem, 4vw, 3rem); }
+            .mobile-padding { padding: 1rem; }
         }
-
         @media (max-width: 640px) {
-            .sm-text-center {
-                text-align: center;
-            }
-            
-            .sm-hidden {
-                display: none;
-            }
+            .sm-text-center { text-align: center; }
+            .sm-hidden { display: none; }
         }
 
         /* Scroll Reveal */
-        .hidden-initially {
-            opacity: 0;
-            transform: translateY(50px);
-        }
-
-        .reveal {
-            opacity: 1;
-            transform: translateY(0);
-            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-        }
+        .hidden-initially { opacity: 0; transform: translateY(50px); }
+        .reveal { opacity: 1; transform: translateY(0); transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1); }
 
         /* Smooth scrolling */
-        html {
-            scroll-behavior: smooth;
-        }
+        html { scroll-behavior: smooth; }
 
         /* Loading Screen */
         .loading-screen {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0; width: 100%; height: 100%;
             background: var(--primary-gradient);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-            transition: opacity 0.5s ease-out;
+            display: flex; justify-content: center; align-items: center;
+            z-index: 9999; transition: opacity 0.5s ease-out;
         }
-
         .loading-spinner {
-            width: 60px;
-            height: 60px;
-            border: 4px solid rgba(255, 255, 255, 0.3);
-            border-top: 4px solid white;
+            width: 60px; height: 60px;
+            border: 4px solid rgba(59,130,246,0.15);
+            border-top: 4px solid #2563eb;
             border-radius: 50%;
             animation: spin 1s linear infinite;
         }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
         /* Navigation Dots */
         .nav-dots {
-            position: fixed;
-            right: 2rem;
-            top: 50%;
-            transform: translateY(-50%);
-            z-index: 100;
+            position: fixed; right: 2rem; top: 50%;
+            transform: translateY(-50%); z-index: 100;
         }
-
         .nav-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.5);
-            margin: 0.5rem 0;
-            cursor: pointer;
-            transition: all 0.3s ease;
+            width: 12px; height: 12px; border-radius: 50%;
+            background: rgba(59,130,246,0.25);
+            margin: 0.5rem 0; cursor: pointer; transition: all 0.3s ease;
         }
-
         .nav-dot.active {
-            background: white;
+            background: #2563eb;
             transform: scale(1.3);
         }
 
         /* Timeline Styles */
-        .timeline-item {
-            position: relative;
-            padding-left: 2rem;
-            margin-bottom: 2rem;
-        }
-
+        .timeline-item { position: relative; padding-left: 2rem; margin-bottom: 2rem; }
         .timeline-item::before {
             content: '';
-            position: absolute;
-            left: 0;
-            top: 0.5rem;
-            width: 12px;
-            height: 12px;
+            position: absolute; left: 0; top: 0.5rem;
+            width: 12px; height: 12px;
             background: var(--accent-gradient);
-            border-radius: 50%;
-            border: 3px solid white;
+            border-radius: 50%; border: 3px solid #fff;
         }
-
         .timeline-item::after {
             content: '';
-            position: absolute;
-            left: 5px;
-            top: 1.5rem;
-            width: 2px;
-            height: calc(100% + 1rem);
-            background: rgba(255, 255, 255, 0.3);
+            position: absolute; left: 5px; top: 1.5rem;
+            width: 2px; height: calc(100% + 1rem);
+            background: rgba(59,130,246,0.10);
         }
+        .timeline-item:last-child::after { display: none; }
 
-        .timeline-item:last-child::after {
-            display: none;
-        }
+        .fade-in {
+    opacity: 0;
+    animation: fadeInBasic 1.2s ease-in forwards;
+    animation-delay: 0.5s;
+}
+@keyframes fadeInBasic {
+    to { opacity: 1; }
+}
     </style>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PPETSKJLNV"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-PPETSKJLNV');
+    </script>
 </head>
 <body class="text-white relative">
     <!-- Loading Screen -->
     <div class="loading-screen" id="loadingScreen">
         <div class="loading-spinner"></div>
     </div>
-
-    <!-- Particle Background -->
     <div class="particles" id="particles"></div>
-
     <!-- Navigation Dots -->
     <div class="nav-dots hidden md:block">
         <div class="nav-dot active" data-section="header"></div>
         <div class="nav-dot" data-section="about"></div>
         <div class="nav-dot" data-section="skills"></div>
-        <div class="nav-dot" data-section="experience"></div>
+        <div class="nav-dot" data-section="projects"></div>
+        <div class="nav-dot" data-section="education"></div>
+        <div class="nav-dot" data-section="certificates"></div>
+        <div class="nav-dot" data-section="achievements"></div>
+        <div class="nav-dot" data-section="languages"></div>
         <div class="nav-dot" data-section="contact"></div>
     </div>
 
@@ -439,34 +228,28 @@
             <div class="animate-float">
                 <div class="w-32 h-32 md:w-40 md:h-40 mx-auto mb-6 rounded-full bg-gradient-to-r from-purple-400 to-pink-400 p-1 animate-glow">
                     <div class="w-full h-full rounded-full bg-white flex items-center justify-center">
-                        <!-- <i class=""></i> -->
                         <img src="Anar.jpeg" alt="Anar Modi - Project Manager" class="fas fa-user-tie text-4xl md:text-5xl text-purple-600 mx-auto rounded-full w-40 h-40">
-
                     </div>
                 </div>
             </div>
-            
             <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold animate-fade-in-up mb-4" style="animation-delay: 0.2s;">
                 Anar Modi
             </h1>
-            
-            <div class="typewriter text-lg md:text-xl lg:text-2xl mb-6" style="animation-delay: 0.8s;">
+            <div class="text-lg md:text-xl lg:text-2xl mb-6 fade-in">
                 PMP® Certified IT Project Manager | Driving Agile Success
             </div>
-            
             <div class="animate-slide-in-scale mb-8" style="animation-delay: 1.2s;">
                 <span class="bg-gradient-to-r from-yellow-400 to-orange-500 text-black px-4 py-2 rounded-full font-semibold animate-glow inline-flex items-center">
                     <i class="fas fa-bolt mr-2"></i>
                     Available for Immediate Join
                 </span>
             </div>
-            
             <div class="flex flex-wrap justify-center gap-4 animate-fade-in-up" style="animation-delay: 1.6s;">
                 <a href="#contact" class="btn-primary px-6 py-3 rounded-full font-semibold text-white inline-flex items-center relative z-10">
                     <i class="fas fa-envelope mr-2"></i>
                     Contact Me
                 </a>
-                <a href="Profile.pdf" download class="btn-secondary px-6 py-3 rounded-full font-semibold text-white inline-flex items-center">
+                <a href="Resume.pdf" download class="btn-secondary px-6 py-3 rounded-full font-semibold text-white inline-flex items-center">
                     <i class="fas fa-download mr-2"></i>
                     Download Resume
                 </a>
@@ -478,307 +261,556 @@
         </div>
     </header>
 
-    <!-- Main Content -->
-    <main class="relative z-10">
-        <!-- About Section -->
-        <section id="about" class="min-h-screen flex items-center py-20 mobile-padding">
-            <div class="container mx-auto px-4 max-w-6xl">
-                <div class="glass-dark p-8 md:p-12 card hidden-initially">
-                    <div class="grid md:grid-cols-1 gap-8 items-center">
-                        <div class="animate-fade-in-left">
-                            <h2 class="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-                                <i class="fas fa-user-circle mr-3"></i>About Me
-                            </h2>
-                            <p class="text-lg leading-relaxed mb-6">
-                                I am a <span class="font-semibold text-yellow-300">PMP® certified Project Manager</span> with over 
-                                <span class="font-semibold text-green-300">6+ years</span> in the IT industry and 
-                                <span class="font-semibold text-blue-300">4+ years</span> of experience leading Agile and Scrum‑based delivery across 
-                                SaaS, e‑commerce, CMS, and mobile/web applications. My career journey has evolved from a 
-                                <span class="font-semibold text-cyan-300">Blockchain and MERN stack developer</span> into a Project Manager and Scrum Master, 
-                                giving me a unique blend of <span class="font-semibold text-orange-300">technical expertise</span> and 
-                                <span class="font-semibold text-pink-300">strategic leadership</span>.
-                            </p>
-                            <p class="text-lg leading-relaxed mb-6">
-                                I have successfully managed cross-functional teams of up to <span class="font-semibold text-purple-300">48 members</span>, 
-                                consistently delivering projects <span class="font-semibold text-green-300">on time, within budget</span>, and driving 
-                                <span class="font-semibold text-blue-300">digital transformation initiatives</span> for global clients. 
-                                Proficient in Agile methodologies and a variety of project management tools, I ensure efficient delivery, 
-                                foster seamless collaboration, and maintain a positive, productive work environment.
-                            </p>
-                            <p class="text-lg leading-relaxed">
-                                Known for my exceptional <span class="font-semibold text-yellow-300">leadership</span>, 
-                                <span class="font-semibold text-green-300">communication</span>, and 
-                                <span class="font-semibold text-purple-300">team‑building skills</span>, I am committed to delivering 
-                                <span class="font-semibold text-orange-300">impactful, results‑driven project outcomes</span> that align with business goals.
-                            </p>
+    <!-- About Section -->
+    <section id="about" class="min-h-screen flex items-center py-10 mobile-padding">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <div class="glass-dark p-8 md:p-12 card hidden-initially">
+                <div class="grid md:grid-cols-1 gap-8 items-center">
+                    <div class="animate-fade-in-left">
+                        <h2 class="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                            <i class="fas fa-user-circle mr-3"></i>About Me
+                        </h2>
+                        <p class="text-lg leading-relaxed mb-6">
+                            I am a <span class="font-semibold text-yellow-300">PMP® certified Project Manager</span> with over 
+                            <span class="font-semibold text-green-300">6+ years</span> in the IT industry and 
+                            <span class="font-semibold text-blue-300">4+ years</span> of experience leading Agile and Scrum‑based delivery across 
+                            SaaS, e‑commerce, CMS, and mobile/web applications. My career journey has evolved from a 
+                            <span class="font-semibold text-cyan-300">Blockchain and MERN stack developer</span> into a Project Manager and Scrum Master, 
+                            giving me a unique blend of <span class="font-semibold text-orange-300">technical expertise</span> and 
+                            <span class="font-semibold text-pink-300">strategic leadership</span>.
+                        </p>
+                        <p class="text-lg leading-relaxed mb-6">
+                            I have successfully managed cross-functional teams of up to <span class="font-semibold text-purple-300">48 members</span>, 
+                            consistently delivering projects <span class="font-semibold text-green-300">on time, within budget</span>, and driving 
+                            <span class="font-semibold text-blue-300">digital transformation initiatives</span> for global clients. 
+                            Proficient in Agile methodologies and a variety of project management tools, I ensure efficient delivery, 
+                            foster seamless collaboration, and maintain a positive, productive work environment.
+                        </p>
+                        <p class="text-lg leading-relaxed">
+                            Known for my exceptional <span class="font-semibold text-yellow-300">leadership</span>, 
+                            <span class="font-semibold text-green-300">communication</span>, and 
+                            <span class="font-semibold text-purple-300">team‑building skills</span>, I am committed to delivering 
+                            <span class="font-semibold text-orange-300">impactful, results‑driven project outcomes</span> that align with business goals.
+                        </p>
+                    </div>
+                    <div class="animate-fade-in-right">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="glass p-4 text-center card">
+                                <i class="fas fa-calendar-alt text-3xl text-purple-400 mb-2"></i>
+                                <div class="text-2xl font-bold">6+</div>
+                                <div class="text-sm">Years Experience</div>
+                            </div>
+                            <div class="glass p-4 text-center card">
+                                <i class="fas fa-users text-3xl text-green-400 mb-2"></i>
+                                <div class="text-2xl font-bold">48</div>
+                                <div class="text-sm">Team Members</div>
+                            </div>
+                            <div class="glass p-4 text-center card">
+                                <i class="fas fa-project-diagram text-3xl text-blue-400 mb-2"></i>
+                                <div class="text-2xl font-bold">20+</div>
+                                <div class="text-sm">Projects Delivered</div>
+                            </div>
+                            <div class="glass p-4 text-center card">
+                                <i class="fas fa-certificate text-3xl text-yellow-400 mb-2"></i>
+                                <div class="text-2xl font-bold">PMP®</div>
+                                <div class="text-sm">Certified</div>
+                            </div>
                         </div>
-                        <div class="animate-fade-in-right">
-                            <div class="grid grid-cols-2 gap-4">
-                                <div class="glass p-4 text-center card">
-                                    <i class="fas fa-calendar-alt text-3xl text-purple-400 mb-2"></i>
-                                    <div class="text-2xl font-bold">6+</div>
-                                    <div class="text-sm">Years Experience</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="min-h-screen flex items-center py-10 mobile-padding">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <div class="glass-dark p-8 md:p-12 card hidden-initially">
+                <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent">
+                    <i class="fas fa-cogs mr-3"></i>Skills & Expertise
+                </h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-2 gap-6">
+                    <!-- Project Management & Management -->
+                    <div class="glass p-6 card skill-category md:col-span-2 lg:col-span-1">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-tasks text-2xl text-purple-400 mr-3"></i>
+                            <h3 class="text-xl font-semibold">Project Management</h3>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="skill-item">
+                                <div class="flex justify-between mb-1">
+                                    <span>Agile/Scrum/Kanban/Waterfall</span>
+                                    <span>95%</span>
                                 </div>
-                                <div class="glass p-4 text-center card">
-                                    <i class="fas fa-users text-3xl text-green-400 mb-2"></i>
-                                    <div class="text-2xl font-bold">48</div>
-                                    <div class="text-sm">Team Members</div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="95"></div>
                                 </div>
-                                <div class="glass p-4 text-center card">
-                                    <i class="fas fa-project-diagram text-3xl text-blue-400 mb-2"></i>
-                                    <div class="text-2xl font-bold">20+</div>
-                                    <div class="text-sm">Projects Delivered</div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="flex justify-between mb-1">
+                                    <span>Resource Handling</span>
+                                    <span>90%</span>
                                 </div>
-                                <div class="glass p-4 text-center card">
-                                    <i class="fas fa-certificate text-3xl text-yellow-400 mb-2"></i>
-                                    <div class="text-2xl font-bold">PMP®</div>
-                                    <div class="text-sm">Certified</div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="90"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="flex justify-between mb-1">
+                                    <span>Estimation</span>
+                                    <span>88%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="88"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="flex justify-between mb-1">
+                                    <span>Leadership/Client Communication</span>
+                                    <span>100%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="95"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="flex justify-between mb-1">
+                                    <span>Team Handling</span>
+                                    <span>93%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="93"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="flex justify-between mb-1">
+                                    <span>Conflict Management</span>
+                                    <span>90%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="90"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="flex justify-between mb-1">
+                                    <span>Risk Management</span>
+                                    <span>92%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="92"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="flex justify-between mb-1">
+                                    <span>Stakeholder Management</span>
+                                    <span>88%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="88"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="flex justify-between mb-1">
+                                    <span>Budget Control</span>
+                                    <span>90%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="90"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tools & Technologies -->
+                    <div class="glass p-6 card skill-category">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-tools text-2xl text-blue-400 mr-3"></i>
+                            <h3 class="text-xl font-semibold">Tools & Tech</h3>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="skill-item">
+                                <div class="flex justify-between mb-1">
+                                    <span>React.js</span>
+                                    <span>90%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="90"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="flex justify-between mb-1">
+                                    <span>Node.js</span>
+                                    <span>88%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="88"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="flex justify-between mb-1">
+                                    <span>Next.js</span>
+                                    <span>85%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="85"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="flex justify-between mb-1">
+                                    <span>Angular.js</span>
+                                    <span>80%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="80"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="flex justify-between mb-1">
+                                    <span>Zoho/ClickUp/Monday.com/Jira</span>
+                                    <span>90%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="90"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="flex justify-between mb-1">
+                                    <span>GitHub/GitLab</span>
+                                    <span>90%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="90"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="flex justify-between mb-1">
+                                    <span>AI Tools (NotebookLM/Cursor AI/Copilot)</span>
+                                    <span>85%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="85"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="flex justify-between mb-1">
+                                    <span>Blockchain/SaaS/CMS</span>
+                                    <span>80%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="80"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="flex justify-between mb-1">
+                                    <span>Bootstrap/Material UI</span>
+                                    <span>88%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="88"></div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Skills Section -->
-        <section id="skills" class="min-h-screen flex items-center py-20 mobile-padding">
-            <div class="container mx-auto px-4 max-w-6xl">
-                <div class="glass-dark p-8 md:p-12 card hidden-initially">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                        <i class="fas fa-cogs mr-3"></i>Skills & Expertise
+    <!-- Projects Section -->
+    <section id="projects" class="min-h-screen flex items-center py-10 mobile-padding">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <div class="glass-dark p-8 md:p-12 card hidden-initially">
+                <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent">
+                    <i class="fas fa-project-diagram mr-3"></i>Top Projects
+                </h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="glass p-6 card">
+                        <h3 class="text-xl font-semibold mb-2">Game Website</h3>
+                        <p class="text-gray-300 mb-2">
+                            A robust and scalable online quiz gaming platform enabling users to play live multiplayer quiz games, join private rooms, and compete with friends in real time. The platform features seamless registration, wallet integration, secure payment gateways, and a dynamic leaderboard system. Designed with a modern UI/UX and built for high performance, it delivers an engaging experience across devices.
+                        </p>
+                        <ul class="list-disc list-inside text-gray-400 mb-2 text-sm">
+                            <li>Live multiplayer quiz rooms & private rooms</li>
+                            <li>Real-time leaderboards and performance tracking</li>
+                            <li>Wallet integration & secure payment gateway</li>
+                            <li>Modern, responsive UI/UX</li>
+                            <li>Admin panel for game and user management</li>
+                            <li>Multiple quiz categories and difficulty levels</li>
+                            <li>Instant notifications and rewards</li>
+                        </ul>
+                        <div class="mt-2">
+                            <span class="inline-block bg-gradient-to-r btn-primary to-cyan-400 text-white text-xs font-semibold px-3 py-1 rounded-full mr-2 mb-1">Node/React.js</span>
+                            <span class="inline-block bg-gradient-to-r btn-primary to-orange-400 text-white text-xs font-semibold px-3 py-1 rounded-full mr-2 mb-1">MongoDB</span>
+                            <span class="inline-block bg-gradient-to-r btn-primary to-blue-400 text-white text-xs font-semibold px-3 py-1 rounded-full mr-2 mb-1">Socket.io</span>
+                            <span class="inline-block bg-gradient-to-r btn-primary to-pink-400 text-white text-xs font-semibold px-3 py-1 rounded-full mr-2 mb-1">AWS</span>
+                            <span class="inline-block bg-gradient-to-r btn-primary to-green-400 text-white text-xs font-semibold px-3 py-1 rounded-full mr-2 mb-1">Payment Gateway</span>
+                        </div>
+                    </div>
+                    <div class="glass p-6 card">
+                        <h3 class="text-xl font-semibold mb-2">Drive Any Cars (DAC)</h3>
+                        <p class="text-gray-300 mb-2">
+                            A 100% online platform designed to simplify car buying and selling for customers, while empowering DAC owners and staff with tools to manage leads, sales cycles, and operations efficiently.
+                        </p>
+                        <ul class="list-disc list-inside text-gray-400 mb-2 text-sm">
+                            <li>Car Listings & Search with advanced filters</li>
+                            <li>Instant Car Valuation tool for sellers</li>
+                            <li>Buy & Sell Portal for listing, purchasing, or reserving vehicles</li>
+                            <li>Online Booking & Secure Payments</li>
+                            <li>Comprehensive Vehicle Details Page</li>
+                            <li>Customer Dashboard for tracking listings, bids, offers, and history</li>
+                            <li>Lead Management System for DAC staff</li>
+                            <li>Sales Cycle Tracking and Inventory Management</li>
+                            <li>Automated Alerts and Notifications</li>
+                            <li>Performance Analytics and Reporting</li>
+                        </ul>
+                        <div class="mt-2">
+                            <span class="inline-block bg-gradient-to-r btn-primary to-cyan-400 text-white text-xs font-semibold px-3 py-1 rounded-full mr-2 mb-1">React/Node.js</span>
+                            <span class="inline-block bg-gradient-to-r btn-primary to-purple-400 text-white text-xs font-semibold px-3 py-1 rounded-full mr-2 mb-1">React Native</span>
+                            <span class="inline-block bg-gradient-to-r btn-primary to-pink-400 text-white text-xs font-semibold px-3 py-1 rounded-full mr-2 mb-1">MongoDB</span>
+                            <span class="inline-block bg-gradient-to-r btn-primary to-green-400 text-white text-xs font-semibold px-3 py-1 rounded-full mr-2 mb-1">Payment Gateway</span>
+                            <span class="inline-block bg-gradient-to-r btn-primary to-yellow-400 text-white text-xs font-semibold px-3 py-1 rounded-full mr-2 mb-1">Push Notifications</span>
+                        </div>
+                    </div>
+                    <div class="glass p-6 card">
+                        <h3 class="text-xl font-semibold mb-2">LMS - Learning Platform</h3>
+                        <p class="text-gray-300 mb-2">A comprehensive web-based learning solution designed for students to enroll in courses, complete assignments, take assessments, and track progress. The platform enables educational institutions to manage learning content, monitor student performance, and facilitate seamless online learning.</p>
+                     <ul class="list-disc list-inside text-gray-400 mb-2 text-sm">
+                         <li>User registration & secure authentication</li>
+<li>Course enrollment & browsing</li>
+<li>Interactive lessons with video, PDFs & quizzes</li>
+<li>Assignment submission & grading</li>
+<li>Timed assessments with instant results</li>
+<li>Progress tracking with grades & completion stats</li>
+<li>Admin panel for course & student management</li>
+<li>Content upload for videos, notes & resources</li>
+<li>Student analytics & performance monitoring</li>
+<li>Role-based access control (Admin, Instructor, Student)</li>
+                        </ul>
+                        <div class="mt-2">
+                            <span class="inline-block bg-gradient-to-r btn-primary to-cyan-400 text-white text-xs font-semibold px-3 py-1 rounded-full mr-2 mb-1">Node/Next</span>
+                            <span class="inline-block bg-gradient-to-r btn-primary to-orange-400 text-white text-xs font-semibold px-3 py-1 rounded-full mr-2 mb-1">MongoDB</span>
+                            <span class="inline-block bg-gradient-to-r btn-primary to-blue-400 text-white text-xs font-semibold px-3 py-1 rounded-full mr-2 mb-1">Tailwind Css</span>
+                            <span class="inline-block bg-gradient-to-r btn-primary to-pink-400 text-white text-xs font-semibold px-3 py-1 rounded-full mr-2 mb-1">AWS</span>
+                            <span class="inline-block bg-gradient-to-r btn-primary to-green-400 text-white text-xs font-semibold px-3 py-1 rounded-full mr-2 mb-1">Payment Gateway</span>
+                        </div>
+                    </div>
+                  
+                    <div class="glass p-6 card">
+                        <h3 class="text-xl font-semibold mb-2">Salutt! – Dating App</h3>
+                        <p class="text-gray-300 mb-2">
+                            A secure, multilingual dating app tailored for career-driven professionals seeking meaningful online or offline connections. Salutt! features the innovative Love Compass Arrow™ for precise geolocation-based matching within a 15-mile radius, robust privacy and safety tools, and a modern cross-platform experience.
+                        </p>
+                        <ul class="list-disc list-inside text-gray-400 mb-2 text-sm">
+                            <li>Love Compass Arrow™: Find matches within 1 foot to 15 miles</li>
+                            <li>Multilingual support: 15+ languages including English, Hindi, French, Korean, and more</li>
+                            <li>User privacy & safety: Professional user base, profile verification, and moderation tools</li>
+                            <li>Available on iOS & Android (50k–67k downloads, v0.0.1, updated Jan 2025)</li>
+                            <li>Admin dashboard: Lead & match management, analytics, content moderation</li>
+                            <li>Real-time match positioning and discovery</li>
+                        </ul>
+                        <div class="mt-2">
+                            <span class="inline-block bg-gradient-to-r btn-primary to-cyan-400 text-white text-xs font-semibold px-3 py-1 rounded-full mr-2 mb-1">React Native</span>
+                            <span class="inline-block bg-gradient-to-r btn-primary to-purple-400 text-white text-xs font-semibold px-3 py-1 rounded-full mr-2 mb-1">PHP (Admin/Backend)</span>
+                            <span class="inline-block bg-gradient-to-r btn-primary to-orange-400 text-white text-xs font-semibold px-3 py-1 rounded-full mr-2 mb-1">REST APIs</span>
+                            <span class="inline-block bg-gradient-to-r btn-primary to-blue-400 text-white text-xs font-semibold px-3 py-1 rounded-full mr-2 mb-1">MySQL/MongoDB</span>
+                            <span class="inline-block bg-gradient-to-r btn-primary to-pink-400 text-white text-xs font-semibold px-3 py-1 rounded-full mr-2 mb-1">Location Services</span>
+                        </div>
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Timeline -->
+    <section id="experience" class="min-h-screen flex items-center py-10 mobile-padding">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <div class="glass-dark p-8 md:p-12 card hidden-initially">
+                <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent">
+                    <i class="fas fa-briefcase mr-3"></i>Experience Highlights
+                </h2>
+                <div class="timeline">
+                    <div class="timeline-item hidden-initially" id="exp2">
+                        <div class="glass p-6 card">
+                            <h3 class="text-xl font-semibold mb-2">Project Manager</h3>
+                            <p class="text-lg font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-3">Excellent Webworld</p>
+                            <p class="text-purple-300 mb-3">Nov 2023 - Present</p>
+                            <p class="text-gray-300">As a Project Manager, I successfully managed multiple projects simultaneously across diverse domains, ensuring all client needs and requirements were thoroughly captured and addressed. I oversaw the entire project lifecycle—from initiation to final handover—while maintaining strict adherence to project plans, timelines, and quality standards.
+                            <br><br>
+                            Leading teams of up to 48 members across various technologies, including PHP, React Native, React.js, Node.js, and Flutter, I coordinated both fixed-price and dedicated engagement models. I applied Agile methodologies, conducting regular scrum meetings, facilitating sprint planning sessions, and fostering strong team bonding to enhance productivity and collaboration. My approach ensured seamless coordination between cross-functional teams and consistent delivery of high-quality, client-focused solutions.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item hidden-initially" id="exp3">
+                        <div class="glass p-6 card">
+                            <h3 class="text-xl font-semibold mb-2">Sr Software Developer & Tech Lead</h3>
+                            <p class="text-lg font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-3">Openxcell Technolabs</p>
+                            <p class="text-purple-300 mb-3">Jan 2019 - Nov 2023</p>
+                            <p class="text-gray-300">I have successfully led and delivered multiple full-stack web and blockchain-based projects, specializing in Node.js, React.js, Angular.js, Next.js, and Blockchain technologies. In addition to hands-on development, I’ve managed client communications, led cross-functional teams, and ensured optimal resource allocation to meet project goals on time and within budget. I bridge the gap between technical execution and strategic planning, delivering high-quality, scalable, and performance-driven solutions.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+ <section id="education-certificates" class="flex items-center py-10 mobile-padding">
+    <div class="container mx-auto px-4 max-w-6xl">
+        <div class="glass-dark p-8 md:p-12 card hidden-initially">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <!-- Education Column -->
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
+                        <i class="fas fa-graduation-cap mr-3"></i>Education
                     </h2>
-                    
-                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        <!-- Project Management -->
-                        <div class="glass p-6 card skill-category">
-                            <div class="flex items-center mb-4">
-                                <i class="fas fa-tasks text-2xl text-purple-400 mr-3"></i>
-                                <h3 class="text-xl font-semibold">Project Management</h3>
-                            </div>
-                            <div class="space-y-3">
-                                <div class="skill-item">
-                                    <div class="flex justify-between mb-1">
-                                        <span>Agile/Scrum</span>
-                                        <span>95%</span>
-                                    </div>
-                                    <div class="skill-bar">
-                                        <div class="skill-progress" data-width="95"></div>
-                                    </div>
-                                </div>
-                                <div class="skill-item">
-                                    <div class="flex justify-between mb-1">
-                                        <span>Kanban</span>
-                                        <span>90%</span>
-                                    </div>
-                                    <div class="skill-bar">
-                                        <div class="skill-progress" data-width="90"></div>
-                                    </div>
-                                </div>
-                                <div class="skill-item">
-                                    <div class="flex justify-between mb-1">
-                                        <span>Waterfall</span>
-                                        <span>85%</span>
-                                    </div>
-                                    <div class="skill-bar">
-                                        <div class="skill-progress" data-width="85"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Management Skills -->
-                        <div class="glass p-6 card skill-category">
-                            <div class="flex items-center mb-4">
-                                <i class="fas fa-chart-line text-2xl text-green-400 mr-3"></i>
-                                <h3 class="text-xl font-semibold">Management</h3>
-                            </div>
-                            <div class="space-y-3">
-                                <div class="skill-item">
-                                    <div class="flex justify-between mb-1">
-                                        <span>Risk Management</span>
-                                        <span>92%</span>
-                                    </div>
-                                    <div class="skill-bar">
-                                        <div class="skill-progress" data-width="92"></div>
-                                    </div>
-                                </div>
-                                <div class="skill-item">
-                                    <div class="flex justify-between mb-1">
-                                        <span>Stakeholder Management</span>
-                                        <span>88%</span>
-                                    </div>
-                                    <div class="skill-bar">
-                                        <div class="skill-progress" data-width="88"></div>
-                                    </div>
-                                </div>
-                                <div class="skill-item">
-                                    <div class="flex justify-between mb-1">
-                                        <span>Budget Control</span>
-                                        <span>90%</span>
-                                    </div>
-                                    <div class="skill-bar">
-                                        <div class="skill-progress" data-width="90"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Tools & Technologies -->
-                        <div class="glass p-6 card skill-category md:col-span-2 lg:col-span-1">
-                            <div class="flex items-center mb-4">
-                                <i class="fas fa-tools text-2xl text-blue-400 mr-3"></i>
-                                <h3 class="text-xl font-semibold">Tools & Tech</h3>
-                            </div>
-                            <div class="space-y-3">
-                                <div class="skill-item">
-                                    <div class="flex justify-between mb-1">
-                                        <span>Jira/Monday.com</span>
-                                        <span>95%</span>
-                                    </div>
-                                    <div class="skill-bar">
-                                        <div class="skill-progress" data-width="95"></div>
-                                    </div>
-                                </div>
-                                <div class="skill-item">
-                                    <div class="flex justify-between mb-1">
-                                        <span>SaaS/CMS</span>
-                                        <span>88%</span>
-                                    </div>
-                                    <div class="skill-bar">
-                                        <div class="skill-progress" data-width="88"></div>
-                                    </div>
-                                </div>
-                                <div class="skill-item">
-                                    <div class="flex justify-between mb-1">
-                                        <span>React/Node.js</span>
-                                        <span>82%</span>
-                                    </div>
-                                    <div class="skill-bar">
-                                        <div class="skill-progress" data-width="82"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="glass p-6 card mb-6">
+                        <h3 class="text-xl font-semibold mb-2">Masters of Computer Application</h3>
+                        <p class="text-purple-300 mb-1">Nirma University</p>
+                        <p class="text-gray-300 mb-1">2016 - 2019</p>
+                    </div>
+                    <div class="glass p-6 card">
+                        <h3 class="text-xl font-semibold mb-2">Bachelor of Computer Application</h3>
+                        <p class="text-purple-300 mb-1">Somalit College</p>
+                        <p class="text-gray-300 mb-1">2013 - 2016</p>
                     </div>
                 </div>
-            </div>
-        </section>
 
-        <!-- Experience Timeline -->
-        <section id="experience" class="min-h-screen flex items-center py-20 mobile-padding">
-            <div class="container mx-auto px-4 max-w-4xl">
-                <div class="glass-dark p-8 md:p-12 card hidden-initially">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent">
-                        <i class="fas fa-briefcase mr-3"></i>Experience Highlights
+                <!-- Certificates Column -->
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center bg-gradient-to-r from-yellow-400 to-pink-400 bg-clip-text text-transparent">
+                        <i class="fas fa-certificate mr-3"></i>Certificates
                     </h2>
-                    
-                    <div class="timeline">
-                        <div class="timeline-item hidden-initially">
-                            <div class="glass p-6 card">
-                                <h3 class="text-xl font-semibold mb-2">Senior Project Manager</h3>
-                                <p class="text-purple-300 mb-3">2020 - Present</p>
-                                <p class="text-gray-300">Leading cross-functional teams of up to 48 members, delivering complex SaaS and e-commerce solutions with 100% on-time delivery rate.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="timeline-item hidden-initially">
-                            <div class="glass p-6 card">
-                                <h3 class="text-xl font-semibold mb-2">Agile Project Manager</h3>
-                                <p class="text-purple-300 mb-3">2018 - 2020</p>
-                                <p class="text-gray-300">Implemented Agile methodologies across multiple projects, improving delivery efficiency by 40% and client satisfaction by 35%.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="timeline-item hidden-initially">
-                            <div class="glass p-6 card">
-                                <h3 class="text-xl font-semibold mb-2">IT Project Coordinator</h3>
-                                <p class="text-purple-300 mb-3">2016 - 2018</p>
-                                <p class="text-gray-300">Coordinated multiple IT projects simultaneously, ensuring seamless communication between stakeholders and development teams.</p>
-                            </div>
-                        </div>
+                    <div class="glass p-6 card mb-6">
+                        <h3 class="text-xl font-semibold mb-2">Google Project Management Certificate</h3>
+                        <p class="text-purple-300 mb-1">November 2023</p>
+                        <a href="https://www.linkedin.com/in/anarmodi/details/certifications/" target="_blank" class="text-blue-300 hover:text-white transition-colors underline">View Certificate</a>
+                    </div>
+                    <div class="glass p-6 card">
+                        <h3 class="text-xl font-semibold mb-2">PMP-PMI Certificate</h3>
+                        <p class="text-purple-300 mb-1">June 2025</p>
+                        <a href="https://www.linkedin.com/in/anarmodi/details/certifications/" target="_blank" class="text-blue-300 hover:text-white transition-colors underline">View Certificate</a>
                     </div>
                 </div>
-            </div>
-        </section>
 
-        <!-- Contact Section -->
-        <section id="contact" class="min-h-screen flex items-center py-20 mobile-padding">
-            <div class="container mx-auto px-4 max-w-4xl">
-                <div class="glass-dark p-8 md:p-12 card hidden-initially">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center bg-gradient-to-r from-pink-400 to-red-400 bg-clip-text text-transparent">
-                        <i class="fas fa-envelope mr-3"></i>Let's Connect
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Achievements Section -->
+   <section id="achievements-languages" class="flex items-center py-10 mobile-padding">
+    <div class="container mx-auto px-4 max-w-6xl">
+        <div class="glass-dark p-8 md:p-12 card hidden-initially">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <!-- Achievements Column -->
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center bg-gradient-to-r from-green-400 to-yellow-400 bg-clip-text text-transparent">
+                        <i class="fas fa-trophy mr-3"></i>Achievements
                     </h2>
-                    
-                    <div class="grid md:grid-cols-2 gap-8">
-                        <div class="space-y-6">
-                            <div class="flex items-center space-x-4 glass p-4 rounded-lg card">
-                                <div class="w-12 h-12 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full flex items-center justify-center">
-                                    <i class="fas fa-envelope text-white"></i>
-                                </div>
-                                <div>
-                                    <h3 class="font-semibold">Email</h3>
-                                    <a href="mailto:anarhmodi@gmail.com" class="text-purple-300 hover:text-white transition-colors">
-                                        anarhmodi@gmail.com
-                                    </a>
-                                </div>
+                    <div class="glass p-6 card">
+                        <h3 class="text-xl font-semibold mb-2">Performer of the Month</h3>
+                        <p class="text-purple-300 mb-1">June 2022</p>
+                        <p class="text-gray-300">Awarded for outstanding performance on numerous projects and strong communication ability.</p>
+                    </div>
+                </div>
+
+                <!-- Languages Column -->
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center bg-gradient-to-r from-blue-400 to-green-400 bg-clip-text text-transparent">
+                        <i class="fas fa-language mr-3"></i>Languages
+                    </h2>
+                    <div class="flex flex-wrap justify-center gap-6">
+                        <span class="bg-gradient-to-r from-purple-500 to-pink-500 px-6 py-2 rounded-full text-lg font-semibold">English</span>
+                        <span class="bg-gradient-to-r from-green-500 to-blue-500 px-6 py-2 rounded-full text-lg font-semibold">Hindi</span>
+                        <span class="bg-gradient-to-r from-yellow-500 to-red-500 px-6 py-2 rounded-full text-lg font-semibold">Gujarati</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Contact Section -->
+    <section id="contact" class="flex items-center py-10 mobile-padding">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <div class="glass-dark p-8 md:p-12 card hidden-initially">
+                <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center bg-gradient-to-r from-pink-400 to-red-400 bg-clip-text text-transparent">
+                    <i class="fas fa-envelope mr-3"></i>Let's Connect
+                </h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="space-y-6">
+                        <div class="flex items-center space-x-4 glass p-4 rounded-lg card">
+                            <div class="w-12 h-12 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full flex items-center justify-center">
+                                <i class="fas fa-envelope text-white"></i>
                             </div>
-                            
-                            <div class="flex items-center space-x-4 glass p-4 rounded-lg card">
-                                <div class="w-12 h-12 bg-gradient-to-r from-green-400 to-blue-400 rounded-full flex items-center justify-center">
-                                    <i class="fas fa-phone text-white"></i>
-                                </div>
-                                <div>
-                                    <h3 class="font-semibold">Phone</h3>
-                                    <a href="tel:+919722232832" class="text-green-300 hover:text-white transition-colors">
-                                        +91 97222 32832
-                                    </a>
-                                </div>
-                            </div>
-                            
-                            <div class="flex items-center space-x-4 glass p-4 rounded-lg card">
-                                <div class="w-12 h-12 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full flex items-center justify-center">
-                                    <i class="fab fa-linkedin text-white"></i>
-                                </div>
-                                <div>
-                                    <h3 class="font-semibold">LinkedIn</h3>
-                                    <a href="https://www.linkedin.com/in/anarmodi/" target="_blank" class="text-blue-300 hover:text-white transition-colors">
-                                        linkedin.com/in/anarmodi
-                                    </a>
-                                </div>
+                            <div>
+                                <h3 class="font-semibold">Email</h3>
+                                <a href="mailto:anarhmodi@gmail.com" class="text-purple-300 hover:text-white transition-colors">
+                                    anarhmodi@gmail.com
+                                </a>
                             </div>
                         </div>
-                        
-                        <div class="glass p-6 rounded-lg">
-                            <h3 class="text-xl font-semibold mb-4">Ready to collaborate?</h3>
-                            <p class="text-gray-300 mb-6">
-                                I'm always open to discussing new opportunities and exciting projects. 
-                                Let's connect and explore how we can work together to achieve your goals.
-                            </p>
-                            <div class="flex flex-wrap gap-3">
-                                <span class="bg-gradient-to-r from-purple-500 to-pink-500 px-3 py-1 rounded-full text-sm">
-                                    Project Management
-                                </span>
-                                <span class="bg-gradient-to-r from-green-500 to-blue-500 px-3 py-1 rounded-full text-sm">
-                                    Agile Leadership
-                                </span>
-                                <span class="bg-gradient-to-r from-yellow-500 to-red-500 px-3 py-1 rounded-full text-sm">
-                                    Team Building
-                                </span>
+                        <div class="flex items-center space-x-4 glass p-4 rounded-lg card">
+                            <div class="w-12 h-12 bg-gradient-to-r from-green-400 to-blue-400 rounded-full flex items-center justify-center">
+                                <i class="fas fa-phone text-white"></i>
                             </div>
+                            <div>
+                                <h3 class="font-semibold">Phone</h3>
+                                <a href="tel:+919722232832" class="text-green-300 hover:text-white transition-colors">
+                                    +91 97222 32832
+                                </a>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4 glass p-4 rounded-lg card">
+                            <div class="w-12 h-12 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full flex items-center justify-center">
+                                <i class="fab fa-linkedin text-white"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold">LinkedIn</h3>
+                                <a href="https://www.linkedin.com/in/anarmodi/" target="_blank" class="text-blue-300 hover:text-white transition-colors">
+                                    linkedin.com/in/anarmodi
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="glass p-6 rounded-lg">
+                        <h3 class="text-xl font-semibold mb-4">Ready to collaborate?</h3>
+                        <p class="text-gray-300 mb-6">
+                            I'm always open to discussing new opportunities and exciting projects. 
+                            Let's connect and explore how we can work together to achieve your goals.
+                        </p>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="bg-gradient-to-r from-purple-500 to-pink-500 px-3 py-1 rounded-full text-sm">
+                                Project Management
+                            </span>
+                            <span class="bg-gradient-to-r from-green-500 to-blue-500 px-3 py-1 rounded-full text-sm">
+                                Agile Leadership
+                            </span>
+                            <span class="bg-gradient-to-r from-yellow-500 to-red-500 px-3 py-1 rounded-full text-sm">
+                                Team Building
+                            </span>
+                            <span class="bg-gradient-to-r from-blue-500 to-purple-500 px-3 py-1 rounded-full text-sm">
+                                AI Tools
+                            </span>
+                            <span class="bg-gradient-to-r from-orange-500 to-pink-500 px-3 py-1 rounded-full text-sm">
+                                Blockchain
+                            </span>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
     <!-- Footer -->
-    <footer class="py-8 mt-20 glass-dark mx-4 mb-4 rounded-lg hidden-initially">
+    <footer class="py-8 mt-5 glass-dark mx-4 mb-4 rounded-lg hidden-initially">
         <div class="container mx-auto px-4 text-center">
             <p class="text-gray-300">
                 &copy; 2025 Anar Modi
-               
             </p>
         </div>
     </footer>
@@ -798,7 +830,7 @@
         function createParticles() {
             const particlesContainer = document.getElementById('particles');
             const particleCount = window.innerWidth < 768 ? 30 : 50;
-            
+            particlesContainer.innerHTML = '';
             for (let i = 0; i < particleCount; i++) {
                 const particle = document.createElement('div');
                 particle.className = 'particle animate-particle';
@@ -810,7 +842,26 @@
             }
         }
 
-        // Intersection Observer for scroll animations
+        // Intersection Observer for scroll animations and nav dots
+        const sectionIds = ['header', 'about', 'skills', 'projects', 'education', 'certificates', 'achievements', 'languages', 'contact'];
+        const sectionElements = sectionIds.map(id => document.getElementById(id));
+        const navDots = document.querySelectorAll('.nav-dot');
+
+        function updateNavDotsOnScroll() {
+            let index = sectionElements.length - 1;
+            for (let i = 0; i < sectionElements.length; i++) {
+                const rect = sectionElements[i].getBoundingClientRect();
+                if (rect.top <= window.innerHeight / 2) {
+                    index = i;
+                }
+            }
+            navDots.forEach(dot => dot.classList.remove('active'));
+            if (navDots[index]) navDots[index].classList.add('active');
+        }
+
+        window.addEventListener('scroll', updateNavDotsOnScroll);
+
+        // Intersection Observer for reveal animations
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -820,19 +871,13 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('reveal');
-                    
-                    // Special animations for different sections
                     if (entry.target.id === 'skills') {
                         animateSkillBars();
                     }
-                    
-                    // Update navigation dots
-                    updateNavDots(entry.target.id);
                 }
             });
         }, observerOptions);
 
-        // Observe all sections
         document.querySelectorAll('.hidden-initially').forEach(section => {
             observer.observe(section);
         });
@@ -844,24 +889,14 @@
                 setTimeout(() => {
                     const width = bar.getAttribute('data-width');
                     bar.style.width = width + '%';
-                }, index * 200);
-            });
-        }
-
-        // Navigation dots functionality
-        function updateNavDots(activeSection) {
-            document.querySelectorAll('.nav-dot').forEach(dot => {
-                dot.classList.remove('active');
-                if (dot.getAttribute('data-section') === activeSection) {
-                    dot.classList.add('active');
-                }
+                }, index * 100);
             });
         }
 
         // Navigation dot click handlers
-        document.querySelectorAll('.nav-dot').forEach(dot => {
+        navDots.forEach((dot, idx) => {
             dot.addEventListener('click', () => {
-                const section = dot.getAttribute('data-section');
+                const section = sectionIds[idx];
                 document.getElementById(section).scrollIntoView({
                     behavior: 'smooth'
                 });
@@ -869,57 +904,48 @@
         });
 
         // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
             });
         });
+    });
 
-        // Button ripple effect
-        document.querySelectorAll('.btn-primary, .btn-secondary').forEach(button => {
-            button.addEventListener('click', function(e) {
-                const ripple = document.createElement('span');
-                const rect = this.getBoundingClientRect();
-                const size = Math.max(rect.width, rect.height);
-                const x = e.clientX - rect.left - size / 2;
-                const y = e.clientY - rect.top - size / 2;
-                
-                ripple.style.width = ripple.style.height = size + 'px';
-                ripple.style.left = x + 'px';
-                ripple.style.top = y + 'px';
-                ripple.classList.add('ripple');
-                
-                this.appendChild(ripple);
-                
-                setTimeout(() => {
-                    ripple.remove();
-                }, 600);
-            });
-        });
+
+        // // Button ripple effect
+        // document.querySelectorAll('.btn-primary, .btn-secondary').forEach(button => {
+        //     button.addEventListener('click', function(e) {
+        //         const ripple = document.createElement('span');
+        //         const rect = this.getBoundingClientRect();
+        //         const size = Math.max(rect.width, rect.height);
+        //         const x = e.clientX - rect.left - size / 2;
+        //         const y = e.clientY - rect.top - size / 2;
+        //         ripple.style.width = ripple.style.height = size + 'px';
+        //         ripple.style.left = x + 'px';
+        //         ripple.style.top = y + 'px';
+        //         ripple.classList.add('ripple');
+        //         this.appendChild(ripple);
+        //         setTimeout(() => {
+        //             ripple.remove();
+        //         }, 600);
+        //     });
+        // });
 
         // Initialize particles on load
         document.addEventListener('DOMContentLoaded', () => {
             createParticles();
-            
             // Add staggered animations to timeline items
             const timelineItems = document.querySelectorAll('.timeline-item');
             timelineItems.forEach((item, index) => {
                 item.style.animationDelay = (index * 0.2) + 's';
             });
+            updateNavDotsOnScroll();
         });
 
         // Responsive navigation
         window.addEventListener('resize', () => {
-            // Recreate particles on resize for better performance
-            const particlesContainer = document.getElementById('particles');
-            particlesContainer.innerHTML = '';
             createParticles();
         });
 
@@ -928,7 +954,6 @@
             const scrolled = window.pageYOffset;
             const parallax = document.querySelectorAll('.animate-float');
             const speed = 0.5;
-            
             parallax.forEach(element => {
                 const yPos = -(scrolled * speed);
                 element.style.transform = `translateY(${yPos}px)`;
@@ -938,7 +963,7 @@
         // Add typing effect restart on scroll
         let typingObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) {
+                if (entry.isIntersecting) { 
                     const typewriter = entry.target.querySelector('.typewriter');
                     if (typewriter) {
                         typewriter.style.animation = 'none';
@@ -948,8 +973,7 @@
                 }
             });
         });
-
-        typingObserver.observe(document.getElementById('header'));
+      
     </script>
 </body>
 </html>
